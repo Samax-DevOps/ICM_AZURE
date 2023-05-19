@@ -17,12 +17,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Update="appsettings-schema.Umbraco.Cms.json">
-            <DependentUpon>appsettings-schema.json</DependentUpon>
-        </Content>
-        <Content Update="appsettings-schema.usync.json">
-            <DependentUpon>appsettings-schema.json</DependentUpon>
-        </Content>
+      <Content Update="appsettings-schema.Umbraco.Cms.json">
+        <DependentUpon>appsettings-schema.json</DependentUpon>
+      </Content>
     </ItemGroup>
 
     <PropertyGroup>

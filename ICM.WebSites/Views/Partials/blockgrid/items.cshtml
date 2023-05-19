@@ -1,4 +1,5 @@
-﻿@inherits UmbracoViewPage<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>>
+﻿@using Umbraco.Cms.Core.Models.Blocks
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IEnumerable<BlockGridItem>>
 @{
     if (Model?.Any() != true)
     {

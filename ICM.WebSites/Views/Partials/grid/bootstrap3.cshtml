@@ -1,11 +1,11 @@
-@using Newtonsoft.Json.Linq
-@using System.Collections
 @using System.Web
-@inherits UmbracoViewPage<dynamic>
+@using Microsoft.AspNetCore.Html
+@using Newtonsoft.Json.Linq
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<dynamic>
 
 @if (Model is JObject && Model?.sections is not null)
 {
-    var oneColumn = ((ICollection)Model.sections).Count == 1;
+    var oneColumn = ((System.Collections.ICollection)Model.sections).Count == 1;
 
     <div class="umb-grid">
         @if (oneColumn)
@@ -84,7 +84,7 @@
 
         if (cfg != null)
         {
-            foreach (var property in cfg.Properties())
+            foreach (JProperty property in cfg.Properties())
             {
                 var propertyValue = HttpUtility.HtmlAttributeEncode(property.Value.ToString());
                 attrs.Add(property.Name + "=\"" + propertyValue + "\"");
@@ -96,7 +96,7 @@
         if (style != null)
         {
             var cssVals = new List<string>();
-            foreach (var property in style.Properties())
+            foreach (JProperty property in style.Properties())
             {
                 var propertyValue = property.Value.ToString();
                 if (string.IsNullOrWhiteSpace(propertyValue) == false)
