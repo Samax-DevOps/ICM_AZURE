@@ -1,0 +1,34 @@
+
+"icmcapital.co.uk, morning, english, arabic",
+https://newsletters.tradingcentral.com/icmcapital/index_en_morning_20230515.html
+
+"icmcapital.co.uk, evening, english, arabic",
+
+
+
+
+
+
+"icmcapital.com, morning, english, arabic, malay",
+"icmcapital.com, evening, english, arabic",
+
+"icmcapital.mu, morning, english, arabic, malay",
+"icmcapital.mu, evening, english, arabic",
+
+"icmtrader.com, morning, english",
+"icmtrader.com, evening, english",
+
+"icmmena.com, morning, english",
+"icmmena.com, evening, english",
+
+
+https://newsletters.tradingcentral.com/icmcapital/
+
+if (language == "ms")
+            {
+                url = url.Replace("_morning_", "_");
+            }
+
+index_{language}_{part}_{date}{(string.IsNullOrEmpty(suffix) ? "" : $"_{suffix}")}.html"
+
+|
