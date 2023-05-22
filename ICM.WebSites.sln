@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICM.WebSites", "ICM.WebSites\ICM.WebSites.csproj", "{7BC3359D-5FB5-4BF2-8296-C4F7B3D1EA5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICM.WebSites.Domain", "ICM.WebSites.Domain\ICM.WebSites.Domain.csproj", "{3344FA03-F887-4597-9C45-35E15463B1EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{7BC3359D-5FB5-4BF2-8296-C4F7B3D1EA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BC3359D-5FB5-4BF2-8296-C4F7B3D1EA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BC3359D-5FB5-4BF2-8296-C4F7B3D1EA5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3344FA03-F887-4597-9C45-35E15463B1EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3344FA03-F887-4597-9C45-35E15463B1EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3344FA03-F887-4597-9C45-35E15463B1EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3344FA03-F887-4597-9C45-35E15463B1EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -25,6 +25,10 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ICM.WebSites.Domain\ICM.WebSites.Domain.csproj" />
+    </ItemGroup>
+
     <PropertyGroup>
         <!-- Razor files are needed for the backoffice to work correctly -->
         <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
