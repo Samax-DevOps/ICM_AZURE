@@ -1,6 +1,294 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = "EmailTemplate.cshtml";
+    Layout = "EmailTemplate.cshtml";
 }
 
+@section Header {
+    <table class="es-header-body" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:700px">
+        <tr>
+            <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+                <!--[if mso]><table style="width:660px" cellpadding="0"
+                                    cellspacing="0"><tr><td style="width:320px" valign="top"><![endif]-->
+                <table class="es-left" cellspacing="0" cellpadding="0" align="left" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;float:left">
+                    <tr>
+                        <td class="es-m-p0r es-m-p20b" valign="top" align="center" style="padding:0;Margin:0;width:320px">
+                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="left" style="padding:15px 0 0 0;margin:0;font-size:0">
+                                        <img class="adapt-img" src="https://dqhcin.stripocdn.email/content/guids/CABINET_bab88086f8de8f00cb8a81262bd71b67ffc79edea67197aedc136b5178f71623/images/icmlogo_EDW.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="188">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table><!--[if mso]></td><td style="width:20px"></td><td style="width:320px" valign="top"><![endif]-->
+                <table class="es-right" cellspacing="0" cellpadding="0" align="right" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;float:right">
+                    <tr>
+                        <td align="left" style="padding:0;Margin:0;width:320px">
+                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="right" style="padding:0;Margin:0">
+                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:18px;color:#035587;font-size:12px">+44 207 6349770</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" style="padding:0;Margin:0">
+                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:18px;color:#035587;font-size:12px">support@icmcapital.co.uk</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" style="padding:0;Margin:0">
+                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:18px;color:#035587;font-size:12px">www.icmcapital.co.uk</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table><!--[if mso]></td></tr></table><![endif]-->
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="Margin:0;padding-bottom:5px;padding-top:15px;padding-left:20px;padding-right:20px">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                    <tr>
+                        <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="right" style="padding:0;Margin:0">
+                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:20px;color:#646464;font-size:13px">Monday, May 15, 2023 |&nbsp;<a href="mailto:marketupdate@ICMCapital.co.uk" target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#646464;font-size:13px">marketupdate@icmcapital.co.uk</a></p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" bgcolor="#44c3d2" style="Margin:0;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px;background-color:#44c3d2">
+                <!--[if mso]><table style="width:660px" cellpadding="0" cellspacing="0"><tr><td style="width:320px" valign="top"><![endif]-->
+                <table cellpadding="0" cellspacing="0" class="es-left" align="left" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;float:left">
+                    <tr>
+                        <td class="es-m-p20b" align="left" style="padding:0;Margin:0;width:320px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="left" style="padding:0;Margin:0;padding-top:5px">
+                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#ffffff;font-size:14px">
+                                            <a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#ffffff;font-size:14px" href="https://calendar">Economic Calendar</a>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table><!--[if mso]></td><td style="width:20px"></td><td style="width:320px" valign="top"><![endif]-->
+                <table cellpadding="0" cellspacing="0" class="es-right" align="right" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;float:right">
+                    <tr>
+                        <td align="left" style="padding:0;Margin:0;width:320px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="right" style="padding:0;Margin:0;font-size:0">
+                                        <table cellpadding="0" cellspacing="0" class="es-table-not-adapt es-social" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                            <tr>
+                                                <td align="center" valign="top" style="padding:0;Margin:0;padding-right:5px">
+                                                    <img src="https://dqhcin.stripocdn.email/content/assets/img/social-icons/circle-colored/facebook-circle-colored.png" alt="Fb" title="Facebook" width="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic">
+                                                </td>
+                                                <td align="center" valign="top" style="padding:0;Margin:0;padding-right:5px">
+                                                    <img src="https://dqhcin.stripocdn.email/content/assets/img/social-icons/circle-colored/twitter-circle-colored.png" alt="Tw" title="Twitter" width="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic">
+                                                </td>
+                                                <td align="center" valign="top" style="padding:0;Margin:0;padding-right:5px">
+                                                    <img src="https://dqhcin.stripocdn.email/content/assets/img/social-icons/circle-colored/instagram-circle-colored.png" alt="Ig" title="Instagram" width="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic">
+                                                </td>
+                                                <td align="center" valign="top" style="padding:0;Margin:0">
+                                                    <img src="https://dqhcin.stripocdn.email/content/assets/img/social-icons/circle-colored/youtube-circle-colored.png" alt="Yt" title="Youtube" width="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table><!--[if mso]></td></tr></table><![endif]-->
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="padding:0;Margin:0">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                    <tr>
+                        <td align="center" valign="top" style="padding:0;Margin:0;width:700px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="center" style="padding:0;Margin:0;font-size:0px">
+                                        <img class="adapt-img" src="https://dqhcin.stripocdn.email/content/guids/CABINET_bab88086f8de8f00cb8a81262bd71b67ffc79edea67197aedc136b5178f71623/images/ukbanneren.jpg" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="700">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+}
+
+<table class="es-content-body" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:700px">
+    <tr>
+        <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+            <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                <tr>
+                    <td valign="top" align="center" style="padding:0;Margin:0;width:660px">
+                        <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                            <tr>
+                                <td align="center" style="padding:0;Margin:0;padding-top:25px;padding-bottom:25px">
+                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">Content Placeholder</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+@section Footer {
+    <table class="es-footer-body" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:700px">
+        <tr>
+            <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                    <tr>
+                        <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="center" style="padding:0;Margin:0;font-size:0px">
+                                        <img class="adapt-img" src="https://dqhcin.stripocdn.email/content/guids/CABINET_bab88086f8de8f00cb8a81262bd71b67ffc79edea67197aedc136b5178f71623/images/icmlogo_EDW.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="188">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="Margin:0;padding-top:20px;padding-bottom:20px;padding-left:20px;padding-right:20px">
+                <!--[if mso]><table style="width:660px" cellpadding="0" 
+                                    cellspacing="0"><tr><td style="width:320px" valign="top"><![endif]-->
+                <table class="es-left" cellspacing="0" cellpadding="0" align="left" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;float:left">
+                    <tr>
+                        <td class="es-m-p20b" align="left" style="padding:0;Margin:0;width:320px">
+                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="right" style="padding:0;Margin:0;font-size:0px">
+                                        <img class="adapt-img" src="https://dqhcin.stripocdn.email/content/guids/CABINET_bab88086f8de8f00cb8a81262bd71b67ffc79edea67197aedc136b5178f71623/images/saillogo.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="181">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table><!--[if mso]></td><td style="width:20px"></td><td style="width:320px" valign="top"><![endif]-->
+                <table class="es-right" cellspacing="0" cellpadding="0" align="right" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;float:right">
+                    <tr>
+                        <td align="left" style="padding:0;Margin:0;width:320px">
+                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="left" style="padding:0;Margin:0;font-size:0px">
+                                        <img class="adapt-img" src="https://dqhcin.stripocdn.email/content/guids/CABINET_bab88086f8de8f00cb8a81262bd71b67ffc79edea67197aedc136b5178f71623/images/polologo.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="246">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table><!--[if mso]></td></tr></table><![endif]-->
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                    <tr>
+                        <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="center" style="padding:25px;Margin:0">
+                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">Entity List</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                    <tr>
+                        <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="center" style="padding:25px;Margin:0">
+                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">Disclaimer</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                    <tr>
+                        <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="center" style="padding:25px;Margin:0">
+                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">Terms and Conditions</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                    <tr>
+                        <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="center" style="padding:25px;Margin:0">
+                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">Footer</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                    <tr>
+                        <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                <tr>
+                                    <td align="center" style="padding:10px;Margin:0">
+                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">Unsubscribe</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+}

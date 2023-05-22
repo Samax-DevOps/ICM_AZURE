@@ -20,6 +20,9 @@
       <Content Update="appsettings-schema.Umbraco.Cms.json">
         <DependentUpon>appsettings-schema.json</DependentUpon>
       </Content>
+      <Content Update="Views\MarketNewsEmailTemplate.cshtml">
+        <DependentUpon>EmailTemplate.cshtml</DependentUpon>
+      </Content>
     </ItemGroup>
 
     <PropertyGroup>
