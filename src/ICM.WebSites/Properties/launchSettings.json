@@ -5,7 +5,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "launchUrl": "http://next.icmcapital.co.uk:5000/emails/market-news/",
+      "launchUrl": "http://next.icmcapital.co.uk:5000/umbraco",
       "applicationUrl": "http://0.0.0.0:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
