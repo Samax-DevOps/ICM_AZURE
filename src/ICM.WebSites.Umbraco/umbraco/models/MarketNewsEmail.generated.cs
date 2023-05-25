@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Market News Email</summary>
 	[PublishedModel("marketNewsEmail")]
-	public partial class MarketNewsEmail : PublishedContentModel
+	public partial class MarketNewsEmail : PublishedContentModel, IBannerProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,20 +50,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Banner: Select the main banner
+		/// Disclaimer: Enter the disclamer
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("banner")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Banner => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "banner");
-
-		///<summary>
-		/// Banner URL: Enter the banner URL
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("bannerURL")]
-		public virtual global::Umbraco.Cms.Core.Models.Link BannerUrl => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "bannerURL");
+		[ImplementPropertyType("disclaimer")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Disclaimer => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "disclaimer");
 
 		///<summary>
 		/// ECalendar URL: Enter the economic calendar URL
@@ -135,5 +127,29 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
 		[ImplementPropertyType("showEntityList")]
 		public virtual bool ShowEntityList => this.Value<bool>(_publishedValueFallback, "showEntityList");
+
+		///<summary>
+		/// Image: Select the banner image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("image")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Image => global::Umbraco.Cms.Web.Common.PublishedModels.BannerProperties.GetImage(this, _publishedValueFallback);
+
+		///<summary>
+		/// Title: Enter the banner title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("title")]
+		public virtual string Title => global::Umbraco.Cms.Web.Common.PublishedModels.BannerProperties.GetTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// Url: Enter the banner URL
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("url")]
+		public virtual global::Umbraco.Cms.Core.Models.Link Url => global::Umbraco.Cms.Web.Common.PublishedModels.BannerProperties.GetUrl(this, _publishedValueFallback);
 	}
 }
