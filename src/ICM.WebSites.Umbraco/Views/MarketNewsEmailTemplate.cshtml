@@ -9,6 +9,9 @@
     var entity = entities.First(e => e.EntityName == Model.Entity)!;
 
     var socialMediaLinks = globalSettings.SocialMediaLinks!.Select(item => item.Content).Cast<SocialMediaLink>();
+    var phoneIconUrl = Umbraco.Media("8d915cf3-7d0b-424f-aeec-0fe21bf100f4")?.Url(mode: UrlMode.Absolute);
+    var envelopeIconUrl = Umbraco.Media("5dcba832-0a26-49f4-8bf0-83ed365a4f5c")?.Url(mode: UrlMode.Absolute);
+    var globeIconUrl = Umbraco.Media("369a3d60-c12b-4eb3-b192-72c0a69b65fe")?.Url(mode: UrlMode.Absolute);
 }
 
 @section Header {
@@ -42,6 +45,9 @@
                                             <a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#035587;font-size:12px" href="tel:@entity.PhoneNumber.RemoveSpaces()">@entity.PhoneNumber</a>
                                         </p>
                                     </td>
+                                    <td align="right" style="padding:0;Margin:0" width="20">
+											<img width="12" height="12" src="@phoneIconUrl" alt="">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="right" style="padding:0;Margin:0">
@@ -49,12 +55,18 @@
                                             <a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#035587;font-size:12px" href="mailto:@entity.Email">@entity.Email</a>
                                         </p>
                                     </td>
+                                    <td align="right" style="padding:0;Margin:0">
+										<img width="12" height="12" src="@envelopeIconUrl" alt="">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td align="right" style="padding:0;Margin:0">
                                         <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:18px;color:#035587;font-size:12px">
                                             <a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#035587;font-size:12px" href="@entity.WebsiteUrl?.Url">@entity.WebsiteUrl?.Url</a>
                                         </p>
+                                    </td>
+                                    <td align="right" style="padding:0;Margin:0">
+											<img width="12" height="12" src="@globeIconUrl" alt="">
                                     </td>
                                 </tr>
                             </table>
