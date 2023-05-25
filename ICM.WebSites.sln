@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICM.WebSites.Domain", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICM.WebSites.Application", "src\ICM.WebSites.Application\ICM.WebSites.Application.csproj", "{5772A678-2B2B-48E7-A2B5-CFA41B27DF60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICM.WebSites", "src\ICM.WebSites\ICM.WebSites.csproj", "{45A00236-5DC0-4C20-8137-66F1CF88452F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICM.WebSites.Umbraco", "src\ICM.WebSites.Umbraco\ICM.WebSites.Umbraco.csproj", "{45A00236-5DC0-4C20-8137-66F1CF88452F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICM.WebSites.Infrastructure", "src\ICM.WebSites.Infrastructure\ICM.WebSites.Infrastructure.csproj", "{1EF277BB-A734-42AC-B133-8462F13E284F}"
 EndProject
