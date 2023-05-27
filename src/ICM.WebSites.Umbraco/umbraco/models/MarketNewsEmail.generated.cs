@@ -50,20 +50,20 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
+		/// Economic Calendar URL: Enter the calendar URL
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("calendarURL")]
+		public virtual global::Umbraco.Cms.Core.Models.Link CalendarUrl => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "calendarURL");
+
+		///<summary>
 		/// Disclaimer: Enter the disclamer
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("disclaimer")]
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString Disclaimer => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "disclaimer");
-
-		///<summary>
-		/// ECalendar URL: Enter the economic calendar URL
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("eCalendarURL")]
-		public virtual global::Umbraco.Cms.Core.Models.Link ECalendarUrl => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "eCalendarURL");
 
 		///<summary>
 		/// Entity: Select the entity
@@ -74,44 +74,20 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string Entity => this.Value<string>(_publishedValueFallback, "entity");
 
 		///<summary>
-		/// First Partner Logo: Select the first partner logo
+		/// Footer Image: Select a footer image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("firstPartnerLogo")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops FirstPartnerLogo => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "firstPartnerLogo");
+		[ImplementPropertyType("footerImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops FooterImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "footerImage");
 
 		///<summary>
-		/// First Partner URL: Enter the first partner URL
+		/// Partners: Select partners
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("firstPartnerURL")]
-		public virtual global::Umbraco.Cms.Core.Models.Link FirstPartnerUrl => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "firstPartnerURL");
-
-		///<summary>
-		/// Main Logo: Select the main logo
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("mainLogo")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops MainLogo => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "mainLogo");
-
-		///<summary>
-		/// Second Partner Logo: Select the second partner logo
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("secondPartnerLogo")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops SecondPartnerLogo => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "secondPartnerLogo");
-
-		///<summary>
-		/// Second Partner URL: Enter the second partner URL
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("secondPartnerURL")]
-		public virtual global::Umbraco.Cms.Core.Models.Link SecondPartnerUrl => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "secondPartnerURL");
+		[ImplementPropertyType("partners")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Partners => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "partners");
 
 		///<summary>
 		/// Sender Email: Enter the sender email

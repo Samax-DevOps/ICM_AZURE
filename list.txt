@@ -1,0 +1,177 @@
+   - 
+   -\ 
+Name                                      Id                                         Version           Available Source
+-----------------------------------------------------------------------------------------------------------------------
+NVM for Windows 1.1.10                    CoreyButler.NVMforWindows                  1.1.10            1.1.11    winget
+RSAKeyGenerator 0.3.0                     435b4dcd-5afa-594f-b6af-53c1dea65d65       0.3.0                       
+Netflix                                   4DF9E0F8.Netflix_mcm4njqhnhss8             6.98.1805.0                 
+Stretchly 1.13.1                          Stretchly.Stretchly                        1.13.1            1.14.0    winget
+WhatsApp                                  5319275A.WhatsAppDesktop_cv1g1gvanyjgm     2.2319.7.0                  
+Visual Studio Community 2022              Microsoft.VisualStudio.2022.Community      17.4.4            17.6.2    winget
+YouTube Music                             939072ef4d6045c8a87586ffc70c2080           1.0                         
+HP Smart                                  AD2F1837.HPPrinterControl_v10z8vjag6ke6    145.3.1086.0                
+Adobe Creative Cloud                      Adobe Creative Cloud                       5.10.0.573                  
+Adobe Notification Client                 AdobeNotificationClient_enpm4xejd91yc      3.0.1.1                     
+Amazon Kindle                             Amazon.Kindle                              1.35.0.64251                winget
+Intel┬« Graphics Command Center            AppUp.IntelGraphicsExperience_8j3eq9eme6cÔÇª 1.100.4979.0                
+ThunderboltTM Control Center              AppUp.ThunderboltControlCenter_8j3eq9eme6ÔÇª 1.0.36.0                    
+Asterisk Password Spy 11.0                Asterisk Password Spy 11.0                 11.0                        
+Binance 1.43.2                            BinanceTech.Binance                        1.43.2            1.45.2    winget
+Ubuntu 22.04.2 LTS                        Canonical.Ubuntu.2204                      2204.2.47.0                 winget
+Clipchamp                                 Clipchamp.Clipchamp_yxz26nhyzhsrt          2.6.2.0                     
+Docker Desktop                            Docker.DockerDesktop                       4.16.3            4.19.0    winget
+Dolby Access                              DolbyLaboratories.DolbyAccess_rz1tebttyb2ÔÇª 3.17.945.0                  
+Dolby Vision Extensions                   DolbyLaboratories.DolbyVisionAccess_rz1teÔÇª 2.2.317.0                   
+Dropbox                                   Dropbox.Dropbox                            174.4.5852                  winget
+Dropbox                                   DropboxInc.Dropbox_wkt425jdc3sga           174.4.5852.0                
+Lenovo Commercial Vantage                 E046963F.LenovoSettingsforEnterprise_k1h2ÔÇª 10.2305.30.0                
+Instagram                                 Facebook.InstagramBeta_8xx8rvfyw5nnt       42.0.19.0                   
+Foxit PDF Reader                          Foxit.FoxitReader                          12.1.2.15332                winget
+Git                                       Git.Git                                    2.40.1                      winget
+Google Chrome                             Google.Chrome                              113.0.5672.127              winget
+KeePass Password Safe 2.53                DominikReichl.KeePass                      2.53              2.53.1    winget
+Adobe Lightroom Classic                   LTRM_12_3                                  12.3                        
+Microsoft Edge                            Microsoft.Edge                             113.0.1774.50               winget
+Microsoft Edge Update                     Microsoft Edge Update                      1.3.175.27                  
+Microsoft Edge WebView2 Runtime           Microsoft.EdgeWebView2Runtime              113.0.1774.50               winget
+Microsoft Help Viewer 2.3                 Microsoft Help Viewer 2.3                  2.3.28307                   
+Cortana                                   Microsoft.549981C3F5F10_8wekyb3d8bbwe      4.2204.13303.0              
+AV1 Video Extension                       Microsoft.AV1VideoExtension_8wekyb3d8bbwe  1.1.60961.0                 
+News                                      Microsoft.BingNews_8wekyb3d8bbwe           4.55.50751.0                
+MSN Weather                               Microsoft.BingWeather_8wekyb3d8bbwe        4.53.51443.0                
+App Installer                             Microsoft.DesktopAppInstaller_8wekyb3d8bbÔÇª 1.19.10173.0                
+Get Help                                  Microsoft.GetHelp_8wekyb3d8bbwe            10.2303.10961.0             
+HEIF Image Extensions                     Microsoft.HEIFImageExtension_8wekyb3d8bbwe 1.0.61171.0                 
+HEVC Video Extensions from the Device MaÔÇª Microsoft.HEVCVideoExtension_8wekyb3d8bbwe 2.0.61301.0                 
+English (United Kingdom) Local ExperiencÔÇª Microsoft.LanguageExperiencePacken-GB_8weÔÇª 22621.19.126.0              
+ðƒð░ð║ðÁÐé ð╗ð¥ð║ð░ð╗ð©ðÀð¥ð▓ð░ð¢ð¢ð¥ð│ð¥ ð©ð¢ÐéðÁÐÇÐäðÁð╣Ðüð░ ð¢ð░ ÐÇÐâÐüÐüÔÇª Microsoft.LanguageExperiencePackru-RU_8weÔÇª 22621.17.101.0              
+MPEG-2 Video Extension                    Microsoft.MPEG2VideoExtension_8wekyb3d8bbÔÇª 1.0.50901.0                 
+Microsoft Edge                            Microsoft.MicrosoftEdge.Stable_8wekyb3d8bÔÇª 113.0.1774.50               
+Microsoft 365 (Office)                    Microsoft.MicrosoftOfficeHub_8wekyb3d8bbwe 18.2305.1222.0              
+Microsoft Sticky Notes                    Microsoft.MicrosoftStickyNotes_8wekyb3d8bÔÇª 4.6.0.0                     
+Mixed Reality Portal                      Microsoft.MixedReality.Portal_8wekyb3d8bbÔÇª 2000.21051.1282.0           
+OneDrive                                  Microsoft.OneDriveSync_8wekyb3d8bbwe       23107.521.1.0               
+Paint                                     Microsoft.Paint_8wekyb3d8bbwe              11.2302.18.0                
+Microsoft People                          Microsoft.People_8wekyb3d8bbwe             10.2202.31.0                
+Power Automate                            Microsoft.PowerAutomateDesktop_8wekyb3d8bÔÇª 1.0.505.0                   
+PowerToys ImageResizer Context Menu       Microsoft.PowerToys.ImageResizerContextMeÔÇª 0.66.0.0                    
+PowerToys PowerRename Context Menu        Microsoft.PowerToys.PowerRenameContextMenÔÇª 0.66.0.0                    
+Raw Image Extension                       Microsoft.RawImageExtension_8wekyb3d8bbwe  2.1.61251.0                 
+Snipping Tool                             Microsoft.ScreenSketch_8wekyb3d8bbwe       11.2304.21.0                
+Windows Security                          Microsoft.SecHealthUI_8wekyb3d8bbwe        1000.25305.9000.0           
+Store Experience Host                     Microsoft.StorePurchaseApp_8wekyb3d8bbwe   12303.1401.1.0              
+Street Views PREMIUM                      Microsoft.StreetViewsPREMIUM_8wekyb3d8bbwe 1.0.0.0                     
+Microsoft To Do                           Microsoft.Todos_8wekyb3d8bbwe              2.96.61291.0                
+VP9 Video Extensions                      Microsoft.VP9VideoExtensions_8wekyb3d8bbwe 1.0.52781.0                 
+Web Media Extensions                      Microsoft.WebMediaExtensions_8wekyb3d8bbwe 1.0.42192.0                 
+Webp Image Extensions                     Microsoft.WebpImageExtension_8wekyb3d8bbwe 1.0.52351.0                 
+Microsoft Photos                          Microsoft.Windows.Photos_8wekyb3d8bbwe     2023.11050.16005ÔÇª           
+Windows Clock                             Microsoft.WindowsAlarms_8wekyb3d8bbwe      11.2302.5.0                 
+Windows Calculator                        Microsoft.WindowsCalculator_8wekyb3d8bbwe  11.2210.0.0                 
+Windows Camera                            Microsoft.WindowsCamera_8wekyb3d8bbwe      2023.2304.11.0              
+Windows Maps                              Microsoft.WindowsMaps_8wekyb3d8bbwe        1.0.51.0                    
+Windows Notepad                           Microsoft.WindowsNotepad_8wekyb3d8bbwe     11.2304.26.0                
+Windows Voice Recorder                    Microsoft.WindowsSoundRecorder_8wekyb3d8bÔÇª 1.0.65.0                    
+Microsoft Store                           Microsoft.WindowsStore_8wekyb3d8bbwe       22304.1401.3.0              
+Windows Terminal                          Microsoft.WindowsTerminal                  1.16.10262.0                winget
+Windows Package Manager Source (winget)   Microsoft.Winget.Source_8wekyb3d8bbwe      2023.527.135.872            
+Wooden Walkways PREMIUM                   Microsoft.WoodenWalkwaysPREMIUM_8wekyb3d8ÔÇª 1.0.0.0                     
+Xbox Game Bar Plugin                      Microsoft.XboxGameOverlay_8wekyb3d8bbwe    1.54.4001.0                 
+Xbox Game Bar                             Microsoft.XboxGamingOverlay_8wekyb3d8bbwe  5.823.3261.0                
+Xbox Identity Provider                    Microsoft.XboxIdentityProvider_8wekyb3d8bÔÇª 12.95.3001.0                
+Xbox Game Speech Window                   Microsoft.XboxSpeechToTextOverlay_8wekyb3ÔÇª 1.21.13002.0                
+Phone Link                                Microsoft.YourPhone_8wekyb3d8bbwe          1.23051.99.0                
+Quick Assist                              MicrosoftCorporationII.QuickAssist_8wekybÔÇª 2.0.19.0                    
+Windows Web Experience Pack               MicrosoftWindows.Client.WebExperience_cw5ÔÇª 423.13500.0.0               
+Glance by Mirametrix┬«                     MirametrixInc.GlancebyMirametrix_17mer8kcÔÇª 10.20.1200.0                
+NVIDIA Control Panel                      NVIDIACorp.NVIDIAControlPanel_56jybvy8sckÔÇª 8.1.964.0                   
+NetTime                                   NetTime_is1                                Unknown                     
+Oh My Posh version 14.0.2                 JanDeDobbeleer.OhMyPosh                    14.0.2            16.9.0    winget
+Microsoft OneDrive                        Microsoft.OneDrive                         23.107.0521.0001            winget
+PokerStars.uk                             PokerStars.uk                              Unknown                     
+Lenovo Display Optimizer                  PortraitDisplays.LenovoDisplayOptimizer_2ÔÇª 4.0.84.0                    
+Postman x86_64 10.14.2                    Postman.Postman                            10.14.2                     winget
+Microsoft Office Professional Plus 2021 ÔÇª ProPlus2021Retail - en-us                  16.0.16327.20248            
+RStudio                                   Posit.RStudio                              2022.12.0+353     2023.03.ÔÇª winget
+Realtek Audio Control                     RealtekSemiconductorCorp.RealtekAudioContÔÇª 1.36.273.0                  
+ScreenRec                                 ScreenRec                                  00.01.00.60                 
+Synaptics Trackpoint Control Panel        SynapticsIncorporated.241916F58D6E7_807d6ÔÇª 19005.19089.0.0             
+Synaptics TouchPad Control Panel          SynapticsIncorporated.SynapticsControlPanÔÇª 19005.19089.0.0             
+PrebootManager                            SynapticsIncorporated.SynapticsUtilities_ÔÇª 1.1.15.0                    
+TeamViewer                                TeamViewer.TeamViewer                      15.42.4           15.42.5   winget
+JetBrains Toolbox                         JetBrains.Toolbox                          1.28.1.15219                winget
+Total Commander 64-bit (Remove or Repair) Ghisler.TotalCommander                     10.52                       winget
+TreeSize Free V4.6.3 (64 bit)             JAMSoftware.TreeSize.Free                  4.6.3                       winget
+VLC media player                          VideoLAN.VLC                               > 3.0.17.4                  winget
+Lenovo Vantage Service                    VantageSRV_is1                             3.13.53.0                   
+WhatsApp (Outdated)                       WhatsApp.WhatsApp                          2.2319.9                    winget
+Zoom                                      Zoom.Zoom                                  < 5.14.0.13888    5.14.5.1ÔÇª winget
+Asterisk Key 9.7                          asterisk key                               Unknown                     
+Ledger Live 2.57.0                        LedgerHQ.LedgerLive                        2.57.0            2.58.0    winget
+YouTube                                   d66f10a297bfe92fd590558b904784ff           1.0                         
+Money Pro - Bills, Budgets and Accounts ÔÇª iBearLLC.MoneyPro-PersonalFinanceBudgetBiÔÇª 2.8.34.0                    
+Mail and Calendar                         microsoft.windowscommunicationsapps_8wekyÔÇª 16005.14326.2144ÔÇª           
+pgAdmin 4 version 6.19                    PostgreSQL.pgAdmin                         6.19              7.1       winget
+Slack                                     SlackTechnologies.Slack                    4.32.122                    winget
+WinSCP 6.1                                WinSCP.WinSCP                              6.1                         winget
+Thinkpad USB Ethernet Adapter Driver      {04201224-2B34-4EE7-862B-B7BBF89DB3AB}     11.9.0823.2022              
+Microsoft Visual C++ 2013 RedistributablÔÇª Microsoft.VCRedist.2013.x64                12.0.40664.0                winget
+Microsoft SQL Server Management Studio -ÔÇª Microsoft.SQLServerManagementStudio        18.12.1           19.1      winget
+Microsoft Web Deploy 4.0                  Microsoft.WebDeploy                        10.0.5923                   winget
+PowerShell 7-x64                          Microsoft.PowerShell                       7.3.4.0                     winget
+Windows 11 Installation Assistant         Microsoft.WindowsInstallationAssistant     1.4.19041.2063              winget
+JetBrains ETW Host Service (x64)          JetBrains.ReSharper                        > 2022.2.2        2022.3.3  winget
+ConEmu 221218.x64                         Maximus5.ConEmu                            11.221.2180                 winget
+Bluetooth Command Line Tools 1.2          {2557A2FA-2A9A-4829-AD02-8DD95C7E4B8B}_is1 1.2.0.56                    
+Unibet Poker version 3.24.0               {29579FD9-4AB9-4AAA-B28F-18E29E8D97FB}_is1 3.24.0                      
+Lightshot-5.5.0.7                         Skillbrains.Lightshot                      5.5.0.7                     winget
+Papercut SMTP                             {333217d4-ef7e-4b28-b135-5d5181f0c9d2}     1.0.723                     
+Microsoft Visual C++ 2012 RedistributablÔÇª Microsoft.VCRedist.2012.x86                11.0.61030.0                winget
+Microsoft SQL Server 2019 LocalDB         {36E492B8-CB83-4DA5-A5D2-D99A8E8228A1}     15.0.4153.1                 
+Microsoft Application Request Routing 3.0 {3C876E4D-B486-49FA-AB33-D94367357A69}     3.0.05311                   
+Windows Subsystem for Linux WSLg Preview  {3CBDE512-7510-4F90-B1C0-7C4EB9DD7C26}     1.0.27                      
+Microsoft .NET SDK 7.0.105 (x64)          Microsoft.DotNet.SDK.7                     7.0.105           7.0.302   winget
+PowerToys (Preview) x64                   Microsoft.PowerToys                        0.66.0            0.70.0    winget
+Microsoft Update Health Tools             {43D501A5-E5E3-46EC-8F33-9E15D2A2CBD5}     5.70.0.0                    
+OpenVPN Connect                           OpenVPNTechnologies.OpenVPNConnect         3.3.7                       winget
+Microsoft Web Platform Installer 5.1      Microsoft.webpicmd                         5.1.51515.0                 winget
+PuTTY release 0.78 (64-bit)               PuTTY.PuTTY                                0.78.0.0                    winget
+DB Browser for SQLite                     DBBrowserForSQLite.DBBrowserForSQLite      3.12.2                      winget
+Telegram Desktop                          Telegram.TelegramDesktop                   4.8.1                       winget
+IIS 10.0 Express                          {56070933-B0D1-493F-8C12-4F7E83CA3071}     10.0.06614                  
+Python Launcher                           {59AF356A-6B03-4A12-ADD4-43419963EBB5}     3.10.7953.0                 
+Microsoft System CLR Types for SQL ServeÔÇª Microsoft.CLRTypesSQLServer.2019           15.0.2000.5                 winget
+Microsoft .NET SDK 8.0.100-preview.4.232ÔÇª Microsoft.DotNet.SDK.Preview               8.0.100-preview.ÔÇª           winget
+Azure Data Studio                         {6591F69E-6588-4980-81ED-C8FCBD7EC4B8}_is1 1.37.0                      
+vs_CoreEditorFonts                        {667150AA-8DA3-433E-91EC-88BD8730D32A}     17.4.33213                  
+Microsoft Visual Studio Installer         {6F320B93-EE3C-4826-85E0-ADF79F8D4C61}     3.4.2244.14676              
+Microsoft Visual C++ 2015-2022 RedistribÔÇª Microsoft.VCRedist.2015+.x86               14.34.31931.0     14.36.32ÔÇª winget
+JetBrains dotPeek 2023.1.2                {72452c8c-f858-5453-95a0-0cf3c8708fef}     2023.1.2                    
+Apple Mobile Device Support               {74CC99EB-7DC0-4CB0-847A-F8C2FE39690C}     14.5.0.7                    
+paint.net                                 dotPDNLLC.paintdotnet                      5.0.6                       winget
+Microsoft .NET SDK 7.0.302 (x64)          Microsoft.DotNet.SDK.7                     7.0.302                     winget
+Windows PC Health Check                   Microsoft.WindowsPCHealthCheck             3.7.2204.15001              winget
+Microsoft ODBC Driver 17 for SQL Server   {853997DA-6FCB-4FB9-918E-E0FF881FAF65}     17.7.2.1                    
+Remote Desktop Manager Free               Devolutions.RemoteDesktopManagerFree       2022.2.26.0                 winget
+Microsoft Windows Desktop Runtime - 6.0.ÔÇª Microsoft.DotNet.DesktopRuntime.6          6.0.16                      winget
+Microsoft ASP.Net Web Frameworks 5.1 SecÔÇª {94F716A3-CBBA-4005-9516-1C4267DDB824}     5.1.20821                   
+IIS URL Rewrite Module 2                  {9BCA2118-F753-4A1E-BCF3-5A820729965C}     7.2.1993                    
+Microsoft OLE DB Driver for SQL Server    {9D6F8754-28E9-4940-B319-3FC8588CF18F}     18.5.0.0                    
+Microsoft SQL Server 2012 Native Client   Microsoft.SQLServer2012NativeClient        11.4.7462.6                 winget
+Microsoft Visual C++ 2013 RedistributablÔÇª Microsoft.VCRedist.2013.x86                12.0.40664.0                winget
+NVIDIA Graphics Driver 517.66             {B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_DiÔÇª 517.66                      
+Microsoft .NET SDK 7.0.102 (x64) from ViÔÇª {B3A63F4D-11C4-46FF-94C1-695633384F54}     7.1.222.60703               
+Palette Master Element Drivers InstallerÔÇª {BB4A20D7-BB81-4B8D-9D9E-757F4E8A8597}_is1 1.0.2                       
+XCA                                       ChristianHohnstadt.xca                     2.4.0                       winget
+Palette Master Element version 1.3.18     {DC84B7F6-8018-432D-B219-4C06F2C79E9A}_is1 1.3.18                      
+Known Issue Rollback Policy Definitions   {DC894CC2-9B9A-4FFE-96E5-5F84A709FB43}     1.0.0.0                     
+Lenovo Quick Clean                        Lenovo.QuickClean                          1.02.0051                   winget
+Microsoft Visual Studio Code              Microsoft.VisualStudioCode                 1.78.2                      winget
+Windows Subsystem for Linux Update        {F8474A47-8B5D-4466-ACE3-78EAB3BF21A8}     5.10.102.1                  
+JetBrains ReSharper in Visual Studio ComÔÇª {aaa294b4-03af-5613-ba4b-58316d19084e}     2023.1.2                    
+Microsoft Visual C++ 2012 RedistributablÔÇª Microsoft.VCRedist.2012.x64                11.0.61030.0                winget
+Microsoft Visual C++ 2015-2022 RedistribÔÇª Microsoft.VCRedist.2015+.x64               14.34.31931.0     14.36.32ÔÇª winget
+JetBrains dotMemory 2023.1.2              {e1c55e87-d105-58fd-accb-e1e12105d451}     2023.1.2                    
+Python 3.10.9 (64-bit)                    Python.Python.3.10                         3.10.9            3.10.11   winget
+JetBrains dotTrace 2023.1.2               JetBrains.ReSharper                        > 2022.2.2        2022.3.3  winget
+Microsoft Visual Studio Tools for ApplicÔÇª {f895a2f1-ae3f-4212-8af1-7fa1f8c212ea}     15.0.27520                  

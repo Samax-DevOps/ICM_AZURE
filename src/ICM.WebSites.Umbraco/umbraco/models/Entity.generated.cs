@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Entity</summary>
 	[PublishedModel("entity")]
-	public partial class Entity : PublishedElementModel, IEntityProperties
+	public partial class Entity : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,59 +50,67 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Address: Enter address for this entity
+		/// Address: Enter the address
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("address")]
-		public virtual string Address => global::Umbraco.Cms.Web.Common.PublishedModels.EntityProperties.GetAddress(this, _publishedValueFallback);
+		public virtual string Address => this.Value<string>(_publishedValueFallback, "address");
 
 		///<summary>
-		/// Email: Enter support email for this property
+		/// Email: Enter the support email
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("email")]
-		public virtual string Email => global::Umbraco.Cms.Web.Common.PublishedModels.EntityProperties.GetEmail(this, _publishedValueFallback);
+		public virtual string Email => this.Value<string>(_publishedValueFallback, "email");
 
 		///<summary>
-		/// Name: Enter the name for this entity
+		/// Icon: Select an icon for the entity
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("entityName")]
-		public virtual string EntityName => global::Umbraco.Cms.Web.Common.PublishedModels.EntityProperties.GetEntityName(this, _publishedValueFallback);
+		[ImplementPropertyType("icon")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Icon => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "icon");
 
 		///<summary>
-		/// Flag Icon: Select the flag icon
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("flagIcon")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops FlagIcon => global::Umbraco.Cms.Web.Common.PublishedModels.EntityProperties.GetFlagIcon(this, _publishedValueFallback);
-
-		///<summary>
-		/// Phone Number: Enter the phone number for this entity
+		/// Phone Number: Enter the phone number
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("phoneNumber")]
-		public virtual string PhoneNumber => global::Umbraco.Cms.Web.Common.PublishedModels.EntityProperties.GetPhoneNumber(this, _publishedValueFallback);
+		public virtual string PhoneNumber => this.Value<string>(_publishedValueFallback, "phoneNumber");
 
 		///<summary>
-		/// Regulation: Enter regulation info for this entity
+		/// Registration Info: Enter the registration info
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("regulation")]
-		public virtual string Regulation => global::Umbraco.Cms.Web.Common.PublishedModels.EntityProperties.GetRegulation(this, _publishedValueFallback);
+		[ImplementPropertyType("registrationInfo")]
+		public virtual string RegistrationInfo => this.Value<string>(_publishedValueFallback, "registrationInfo");
+
+		///<summary>
+		/// Regulation Info: Enter the regulation info
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("regulationInfo")]
+		public virtual string RegulationInfo => this.Value<string>(_publishedValueFallback, "regulationInfo");
+
+		///<summary>
+		/// Title: Enter the entity title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("title")]
+		public virtual string Title => this.Value<string>(_publishedValueFallback, "title");
 
 		///<summary>
 		/// Website URL: Enter the website URL
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.1+66434bf")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("websiteUrl")]
-		public virtual global::Umbraco.Cms.Core.Models.Link WebsiteUrl => global::Umbraco.Cms.Web.Common.PublishedModels.EntityProperties.GetWebsiteUrl(this, _publishedValueFallback);
+		[ImplementPropertyType("websiteURL")]
+		public virtual global::Umbraco.Cms.Core.Models.Link WebsiteUrl => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "websiteURL");
 	}
 }
