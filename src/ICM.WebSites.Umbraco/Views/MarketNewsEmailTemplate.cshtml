@@ -147,8 +147,8 @@
                             <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
                                 <tr>
                                     <td align="center" style="padding:0;Margin:0;font-size:0px">
-                                        <a href="@Model.Url?.Url">
-                                            <img class="adapt-img" src="@Model.Image?.Url(mode: UrlMode.Absolute)" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="700">
+                                        <a href="@Model.Banner?.Content.Url?.Url">
+                                            <img class="adapt-img" src="@Model.Banner?.Content.Image?.Url(mode: UrlMode.Absolute)" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="700">
                                         </a>
                                     </td>
                                 </tr>
@@ -360,7 +360,7 @@
                                 <tr>
                                     <td align="center" style="padding:5px 0 20px;Margin:0">
                                         <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:11px">
-                                           <a href="{{unsubscribeURL}}" style="color:#333" >Unsubscribe from this newsletter</a>  
+                                           <a href="@@unsubscribeURL" style="color:#333" >Unsubscribe from this newsletter</a>  
                                         </p>
                                     </td>
                                 </tr>
