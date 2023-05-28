@@ -2,12 +2,7 @@
 
 public class MarketNewsVm
 {
-    public MarketNewsVm(string contentHtml, string termsAndConditionsHtml)
-    {
-        ContentHtml = contentHtml;
-        TermsAndConditionsHtml = termsAndConditionsHtml;
-    }
-
-    public string ContentHtml { get; init; }
-    public string TermsAndConditionsHtml { get; init; }
+    public required string ContentHtml { get; init; }
+    public required string TermsAndConditionsHtml { get; init; }
 }
+

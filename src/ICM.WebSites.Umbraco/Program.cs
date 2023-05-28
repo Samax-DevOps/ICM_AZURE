@@ -1,3 +1,5 @@
+using ICM.WebSites.Umbraco;
+
 namespace ICM.WebSites
 {
     public static class Program

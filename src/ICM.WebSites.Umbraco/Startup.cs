@@ -1,4 +1,7 @@
-namespace ICM.WebSites
+using ICM.WebSites.Application;
+using ICM.WebSites.Infrastructure;
+
+namespace ICM.WebSites.Umbraco
 {
     public class Startup
     {
@@ -34,6 +37,9 @@ namespace ICM.WebSites
                 .AddWebsite()
                 .AddComposers()
                 .Build();
+
+            services.AddApplicationServices();
+            services.AddInfrastructureServices(_config);
         }
 
         /// <summary>

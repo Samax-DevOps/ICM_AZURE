@@ -1,8 +1,13 @@
-﻿@using ICM.WebSites.Domain.Enums
+﻿@using ICM.WebSites.Application.MarketNews.Queries.GetMarketNews
+@using ICM.WebSites.Domain.Enums
+@using ICM.WebSites.Application.Common.Interfaces
+
+@inject ISender Mediator
+@inject ITimeProvider TimeProvider
+
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<MarketNewsEmail>
 @{
     Layout = "EmailTemplate.cshtml";
-
 
     var globalSettings = Model.Root().Siblings<GlobalSettings>("globalSettings")!.First();
     var websiteSettings = Model.Root().Children<WebsiteSettings>("websiteSettings")!.First();
@@ -15,9 +20,34 @@
     var phoneIconUrl = Umbraco.Media("0effdf85-34d4-4074-9d89-d3166f6f18dd")?.Url(mode: UrlMode.Absolute);
     var envelopeIconUrl = Umbraco.Media("20d554ab-1190-4aa2-a7c2-406f7b01871a")?.Url(mode: UrlMode.Absolute);
     var globeIconUrl = Umbraco.Media("4899e58f-f812-4dd9-a73c-629373f4d491")?.Url(mode: UrlMode.Absolute);
+
+    var marketNewsModel = await Mediator.Send(CreateMarketNewsQuery(Context));
+}
+
+@functions{
+    private GetMarketNewsQuery CreateMarketNewsQuery(Microsoft.AspNetCore.Http.HttpContext context)
+    {
+        if (!DateOnly.TryParse(Context.Request.Query["date"], out var date))
+        {
+            date = DateOnly.FromDateTime(TimeProvider.GetUtcNow().Date);
+        }
+        
+        if (!Enum.TryParse<PartsOfDay>(Context.Request.Query["date"], out var partOfDay))
+        {
+            partOfDay = PartsOfDay.Morning;
+        }
+
+        return new GetMarketNewsQuery {Date = default, PartOfDay = PartsOfDay.Morning, Culture = "null"};
+        {
+            // Culture = Model.GetCultureFromDomains() ?? "en",
+            // Date = date,
+            // PartOfDay = partOfDay
+        };
+    }
 }
 
 @section Header {
+    <!--suppress HtmlDeprecatedAttribute -->
     <table class="es-header-body" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:700px">
         <tr>
             <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
@@ -124,7 +154,7 @@
                                                 @foreach (var link in socialMediaLinks)
                                                 {
                                                     <td align="center" valign="top" style="padding:0;Margin:0;padding-right:5px">
-                                                        <a href="@link?.Url.Url" target="_blank">
+                                                        <a href="@link?.Url?.Url" target="_blank">
                                                             <img src="@link?.Icon?.Url(mode: UrlMode.Absolute)" alt="@link?.Title" title="@link?.Title" width="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic">
                                                         </a>
                                                     </td>
@@ -170,7 +200,13 @@
                         <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
                             <tr>
                                 <td align="center" style="padding:0;Margin:0;padding-top:25px;padding-bottom:25px">
-                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">Content Placeholder</p>
+                                    @{
+
+                                    }
+
+                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
+                                        Content Placeholder
+                                    </p>
                                 </td>
                             </tr>
                         </table>
@@ -327,7 +363,9 @@
                             <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
                                 <tr>
                                     <td align="center" style="padding:25px;Margin:0">
-                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">Terms and Conditions</p>
+                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
+                                            @Html.Raw(marketNewsModel.TermsAndConditionsHtml)
+                                        </p>
                                     </td>
                                 </tr>
                             </table>
@@ -360,7 +398,7 @@
                                 <tr>
                                     <td align="center" style="padding:5px 0 20px;Margin:0">
                                         <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:11px">
-                                           <a href="@@unsubscribeURL" style="color:#333" >Unsubscribe from this newsletter</a>  
+                                            <a href="@@unsubscribeURL" style="color:#333">Unsubscribe from this newsletter</a>
                                         </p>
                                     </td>
                                 </tr>
