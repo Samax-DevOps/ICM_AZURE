@@ -30,6 +30,31 @@ public class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQuery, Mar
         var htmlDoc = new HtmlDocument();
         htmlDoc.LoadHtml(html);
 
+        return new MarketNewsVm
+        {
+            TermsAndConditionsHtml = GetTermsAndConditionsHtml(htmlDoc),
+            ContentHtml = GetContentHtml(htmlDoc),
+            VideoHtml = GetVideoHtml(htmlDoc),
+            NavigationHtml = GetNavigationHtml(htmlDoc)
+        };
+    }
+
+    private static string GetContentHtml(HtmlDocument htmlDoc)
+    {
+        // get main content
+        var contentNode = htmlDoc.GetElementbyId("MarketCommentPanel").Ancestors("table").First();
+
+        // remove bottom border
+        contentNode
+            .Descendants("td")
+            .Last(td => td.Attributes["style"]?.Value?.StartsWith("border-bottom") ?? false)
+            .Attributes.Remove("style");
+        
+        return contentNode.OuterHtml;
+    }
+
+    private static string GetTermsAndConditionsHtml(HtmlDocument htmlDoc)
+    {
         // get disclaimer and TC's
         var tcNode = htmlDoc.DocumentNode
             .SelectSingleNode("//td/b[starts-with(., 'TRADING CENTRAL Terms and conditions')]")
@@ -39,21 +64,25 @@ public class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQuery, Mar
 
         // remove disclaimer row
         tcNode.SelectSingleNode("tr").Remove();
+        
+        return tcNode.OuterHtml;
+    }
 
-        // get main content
-        var contentNode = htmlDoc.GetElementbyId("MarketCommentPanel").Ancestors("table").First();
+    private static string GetVideoHtml(HtmlDocument htmlDoc)
+    {
+        // get video
+        var videoNode = htmlDoc.GetElementbyId("panelWebtv");
+        
+        return videoNode.OuterHtml;
+    }
 
-        // remove bottom border
-        contentNode
-            .Descendants("td")
-            .Last(td => td.Attributes["style"]?.Value?.StartsWith("border-bottom") ?? false)
-            .Attributes.Remove("style");
-
-        return new MarketNewsVm
-        {
-            TermsAndConditionsHtml = tcNode.OuterHtml,
-            ContentHtml = contentNode.OuterHtml
-        };
+    private static string GetNavigationHtml(HtmlDocument htmlDoc)
+    {
+        // get navigation
+        var navigationNode = htmlDoc.DocumentNode
+            .SelectSingleNode("//comment()[contains(., 'navigation start')]/following-sibling::table");
+        
+        return navigationNode.OuterHtml;
     }
 
     private static string CreateUrl(GetMarketNewsQuery request)
