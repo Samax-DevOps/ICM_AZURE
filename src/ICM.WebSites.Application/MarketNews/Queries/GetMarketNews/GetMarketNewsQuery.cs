@@ -23,12 +23,13 @@ public class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQuery, Mar
 
     public async Task<MarketNewsVm> Handle(GetMarketNewsQuery request, CancellationToken cancellationToken)
     {
+        // load html from Trading Central
         var url = CreateUrl(request);
         var html = await _tradingCentralClient.GetAsync(url);
-        
+
         var htmlDoc = new HtmlDocument();
         htmlDoc.LoadHtml(html);
-        
+
         // get disclaimer and TC's
         var tcNode = htmlDoc.DocumentNode
             .SelectSingleNode("//td/b[starts-with(., 'TRADING CENTRAL Terms and conditions')]")
@@ -39,10 +40,19 @@ public class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQuery, Mar
         // remove disclaimer row
         tcNode.SelectSingleNode("tr").Remove();
 
+        // get main content
+        var contentNode = htmlDoc.GetElementbyId("MarketCommentPanel").Ancestors("table").First();
+
+        // remove bottom border
+        contentNode
+            .Descendants("td")
+            .Last(td => td.Attributes["style"]?.Value?.StartsWith("border-bottom") ?? false)
+            .Attributes.Remove("style");
+
         return new MarketNewsVm
         {
             TermsAndConditionsHtml = tcNode.OuterHtml,
-            ContentHtml = ""
+            ContentHtml = contentNode.OuterHtml
         };
     }
 
