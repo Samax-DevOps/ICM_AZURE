@@ -27,7 +27,7 @@
 @functions{
     private GetMarketNewsQuery CreateMarketNewsQuery(Microsoft.AspNetCore.Http.HttpContext context)
     {
-        if (!DateOnly.TryParse(Context.Request.Query["date"], out var date))
+        if (!DateOnly.TryParseExact(Context.Request.Query["date"], "yyyyMMdd", out var date))
         {
             date = DateOnly.FromDateTime(TimeProvider.GetUtcNow().Date);
         }
@@ -37,11 +37,11 @@
             partOfDay = PartsOfDay.Morning;
         }
 
-        return new GetMarketNewsQuery {Date = default, PartOfDay = PartsOfDay.Morning, Culture = "null"};
+        return new GetMarketNewsQuery
         {
-            // Culture = Model.GetCultureFromDomains() ?? "en",
-            // Date = date,
-            // PartOfDay = partOfDay
+            Culture = Model.GetCultureFromDomains() ?? "en",
+            Date = date,
+            PartOfDay = partOfDay
         };
     }
 }
@@ -345,6 +345,9 @@
                                             @currentEntity.RegulationInfo
                                         </p>
                                         <p>
+                                            Registered address: @currentEntity.Address
+                                        </p>
+                                        <p>
                                             @globalSettings.RiskWarning
                                         </p>
                                     </td>
@@ -356,13 +359,13 @@
             </td>
         </tr>
         <tr>
-            <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+            <td align="left" style="Margin:0;padding: 0 20px;">
                 <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
                     <tr>
                         <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
                             <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
                                 <tr>
-                                    <td align="center" style="padding:25px;Margin:0">
+                                    <td align="center" style="padding: 0 25px 25px;Margin:0">
                                         <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
                                             @Html.Raw(marketNewsModel.TermsAndConditionsHtml)
                                         </p>

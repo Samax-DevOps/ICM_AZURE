@@ -1,10 +1,11 @@
-﻿using ICM.WebSites.Application.Common.Interfaces;
+﻿using HtmlAgilityPack;
+using ICM.WebSites.Application.Common.Interfaces;
 
 namespace ICM.WebSites.Infrastructure.Services;
 
 public class TradingCentralClient : ITradingCentralClient
 {
-    private HttpClient _httpClient;
+    private readonly HttpClient _httpClient;
 
     public TradingCentralClient(HttpClient httpClient)
     {
@@ -16,8 +17,6 @@ public class TradingCentralClient : ITradingCentralClient
         var response = await _httpClient.GetAsync(url);
         response.EnsureSuccessStatusCode();
 
-        var html = await response.Content.ReadAsStringAsync();
-
-        return html;
+        return await response.Content.ReadAsStringAsync();
     }
 }
