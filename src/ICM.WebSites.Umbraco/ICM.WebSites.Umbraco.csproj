@@ -32,6 +32,9 @@
         <Content Update="Views\MarketNewsEmailTemplate.cshtml">
             <DependentUpon>EmailTemplate.cshtml</DependentUpon>
         </Content>
+        <Content Update="Views\EmailTemplateMarketNews.cshtml">
+          <DependentUpon>EmailTemplate.cshtml</DependentUpon>
+        </Content>
     </ItemGroup>
 
     <PropertyGroup>
