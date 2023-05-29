@@ -1,13 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
+
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0-1.final" />
         <PackageReference Include="Umbraco.Cms" Version="11.4.0" />
         <PackageReference Include="uSync" Version="11.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\ICM.WebSites.Application\ICM.WebSites.Application.csproj" />
+        <ProjectReference Include="..\ICM.WebSites.Domain\ICM.WebSites.Domain.csproj" />
+        <ProjectReference Include="..\ICM.WebSites.Infrastructure\ICM.WebSites.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -17,18 +26,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Update="appsettings-schema.Umbraco.Cms.json">
-        <DependentUpon>appsettings-schema.json</DependentUpon>
-      </Content>
-      <Content Update="Views\MarketNewsEmailTemplate.cshtml">
-        <DependentUpon>EmailTemplate.cshtml</DependentUpon>
-      </Content>
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\ICM.WebSites.Application\ICM.WebSites.Application.csproj" />
-      <ProjectReference Include="..\ICM.WebSites.Domain\ICM.WebSites.Domain.csproj" />
-      <ProjectReference Include="..\ICM.WebSites.Infrastructure\ICM.WebSites.Infrastructure.csproj" />
+<!--        <Content Update="appsettings-schema.Umbraco.Cms.json">-->
+<!--            <DependentUpon>appsettings-schema.json</DependentUpon>-->
+<!--        </Content>-->
+        <Content Update="Views\MarketNewsEmailTemplate.cshtml">
+            <DependentUpon>EmailTemplate.cshtml</DependentUpon>
+        </Content>
     </ItemGroup>
 
     <PropertyGroup>
@@ -38,9 +41,8 @@
 
     <PropertyGroup>
         <!-- Remove RazorCompileOnBuild and RazorCompileOnPublish when not using ModelsMode InMemoryAuto -->
-        <RazorCompileOnBuild>false</RazorCompileOnBuild>
-        <RazorCompileOnPublish>false</RazorCompileOnPublish>
+        <RazorCompileOnBuild>true</RazorCompileOnBuild>
+        <RazorCompileOnPublish>true</RazorCompileOnPublish>
     </PropertyGroup>
-
 
 </Project>

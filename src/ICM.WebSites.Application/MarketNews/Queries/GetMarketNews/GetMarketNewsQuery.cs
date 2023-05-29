@@ -20,8 +20,16 @@ public class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQuery, Mar
         _tradingCentralClient = tradingCentralClient;
     }
 
-    public Task<MarketNewsVm> Handle(GetMarketNewsQuery request, CancellationToken cancellationToken)
+    public async Task<MarketNewsVm> Handle(GetMarketNewsQuery request, CancellationToken cancellationToken)
     {
+        var url = CreateUrl(request);
+        var html = await _tradingCentralClient.GetAsync(url);
+        
         throw new NotImplementedException();
+    }
+
+    private string CreateUrl(GetMarketNewsQuery request)
+    {
+        return "index_en_morning_20230515.html";
     }
 }

@@ -11,8 +11,13 @@ public class TradingCentralClient : ITradingCentralClient
         _httpClient = httpClient;
     }
 
-    public Task<string> GetAsync(string url)
+    public async Task<string> GetAsync(string url)
     {
-        throw new NotImplementedException();
+        var response = await _httpClient.GetAsync(url);
+        response.EnsureSuccessStatusCode();
+
+        var html = await response.Content.ReadAsStringAsync();
+
+        return html;
     }
 }
