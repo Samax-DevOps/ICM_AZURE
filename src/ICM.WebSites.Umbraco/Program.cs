@@ -1,6 +1,3 @@
-using ICM.WebSites.Application.MarketNews.Queries.GetMarketNews;
-using ICM.WebSites.Domain.Enums;
-
 namespace ICM.WebSites.Umbraco;
 
 public static class Program

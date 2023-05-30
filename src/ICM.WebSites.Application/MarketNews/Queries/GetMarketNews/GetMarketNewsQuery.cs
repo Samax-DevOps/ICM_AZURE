@@ -4,7 +4,7 @@ using ErrorOr;
 using HtmlAgilityPack;
 using ICM.WebSites.Application.Common.Interfaces;
 using ICM.WebSites.Domain.Enums;
-using MediatR;
+using Mediator;
 using Microsoft.Extensions.Logging;
 
 namespace ICM.WebSites.Application.MarketNews.Queries.GetMarketNews;
@@ -30,7 +30,7 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
         _logger = logger;
     }
 
-    public async Task<ErrorOr<MarketNewsVm>> Handle(GetMarketNewsQuery request, CancellationToken cancellationToken)
+    public async ValueTask<ErrorOr<MarketNewsVm>> Handle(GetMarketNewsQuery request, CancellationToken cancellationToken)
     {
         // load html from Trading Central
         var url = CreateUrl(request);
