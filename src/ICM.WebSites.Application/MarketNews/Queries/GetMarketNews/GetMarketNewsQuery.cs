@@ -1,42 +1,66 @@
-﻿using HtmlAgilityPack;
+﻿using System.Globalization;
+using System.Text.RegularExpressions;
+using ErrorOr;
+using HtmlAgilityPack;
 using ICM.WebSites.Application.Common.Interfaces;
 using ICM.WebSites.Domain.Enums;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace ICM.WebSites.Application.MarketNews.Queries.GetMarketNews;
 
-public record GetMarketNewsQuery : IRequest<MarketNewsVm>
+public record GetMarketNewsQuery : IRequest<ErrorOr<MarketNewsVm>>
 {
     public required DateOnly Date { get; init; }
     public required PartsOfDay PartOfDay { get; init; }
     public required string Culture { get; init; }
 }
 
-public class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQuery, MarketNewsVm>
+public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQuery, ErrorOr<MarketNewsVm>>
 {
-    private readonly ITradingCentralClient _tradingCentralClient;
+    [GeneratedRegex("not found")]
+    private static partial Regex NotFoundRegex();
 
-    public GetMarketNewsQueryHandler(ITradingCentralClient tradingCentralClient)
+    private readonly ITradingCentralClient _tradingCentralClient;
+    private readonly ILogger _logger;
+
+    public GetMarketNewsQueryHandler(ITradingCentralClient tradingCentralClient, ILogger<GetMarketNewsQueryHandler> logger)
     {
         _tradingCentralClient = tradingCentralClient;
+        _logger = logger;
     }
 
-    public async Task<MarketNewsVm> Handle(GetMarketNewsQuery request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<MarketNewsVm>> Handle(GetMarketNewsQuery request, CancellationToken cancellationToken)
     {
         // load html from Trading Central
         var url = CreateUrl(request);
         var html = await _tradingCentralClient.GetAsync(url);
 
+        if (NotFoundRegex().IsMatch(html))
+        {
+            return Errors.TradingCentral.ContentNotFoundError;
+        }
+
         var htmlDoc = new HtmlDocument();
         htmlDoc.LoadHtml(html);
 
-        return new MarketNewsVm
+        try
         {
-            TermsAndConditionsHtml = GetTermsAndConditionsHtml(htmlDoc),
-            ContentHtml = GetContentHtml(htmlDoc),
-            VideoHtml = GetVideoHtml(htmlDoc),
-            NavigationHtml = GetNavigationHtml(htmlDoc)
-        };
+            var viewModel = new MarketNewsVm
+            {
+                TermsAndConditionsHtml = GetTermsAndConditionsHtml(htmlDoc),
+                ContentHtml = GetContentHtml(htmlDoc),
+                VideoHtml = GetVideoHtml(htmlDoc),
+                NavigationHtml = GetNavigationHtml(htmlDoc)
+            };
+
+            return viewModel;
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, Errors.TradingCentral.ParseError.ToString());
+            return Errors.TradingCentral.ParseError;
+        }
     }
 
     private static string GetContentHtml(HtmlDocument htmlDoc)
@@ -49,44 +73,46 @@ public class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQuery, Mar
             .Descendants("td")
             .Last(td => td.Attributes["style"]?.Value?.StartsWith("border-bottom") ?? false)
             .Attributes.Remove("style");
-        
+
         return contentNode.OuterHtml;
     }
 
     private static string GetTermsAndConditionsHtml(HtmlDocument htmlDoc)
     {
         // get disclaimer and TC's
-        var tcNode = htmlDoc.DocumentNode
+        var node = htmlDoc.DocumentNode
             .SelectSingleNode("//td/b[starts-with(., 'TRADING CENTRAL Terms and conditions')]")
             .AncestorsAndSelf()
             .Skip(3)
             .First();
 
         // remove disclaimer row
-        tcNode.SelectSingleNode("tr").Remove();
-        
-        return tcNode.OuterHtml;
+        node.SelectSingleNode("tr").Remove();
+
+        return node.OuterHtml;
     }
 
-    private static string GetVideoHtml(HtmlDocument htmlDoc)
+    private static string? GetVideoHtml(HtmlDocument htmlDoc)
     {
         // get video
         var videoNode = htmlDoc.GetElementbyId("panelWebtv");
-        
-        return videoNode.OuterHtml;
+
+        return videoNode?.OuterHtml;
     }
 
     private static string GetNavigationHtml(HtmlDocument htmlDoc)
     {
         // get navigation
-        var navigationNode = htmlDoc.DocumentNode
+        var node = htmlDoc.DocumentNode
             .SelectSingleNode("//comment()[contains(., 'navigation start')]/following-sibling::table");
-        
-        return navigationNode.OuterHtml;
+
+        return node.OuterHtml;
     }
 
     private static string CreateUrl(GetMarketNewsQuery request)
     {
-        return "index_en_morning_20230515.html";
+        var culture = CultureInfo.GetCultureInfo(request.Culture).TwoLetterISOLanguageName;
+
+        return $"index_{culture}_{request.PartOfDay}_{request.Date.ToString("yyyyMMdd")}.html";
     }
 }

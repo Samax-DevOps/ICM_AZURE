@@ -7,8 +7,6 @@ public static class Program
 {
     public static void Main(string[] args)
     {
-        var c = new GetMarketNewsQuery {Date = default, PartOfDay = PartsOfDay.Morning, Culture = "null"};
-        
         CreateHostBuilder(args)
             .Build()
             .Run();

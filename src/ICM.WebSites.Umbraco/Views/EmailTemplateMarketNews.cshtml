@@ -1,5 +1,6 @@
-﻿@using ICM.WebSites.Application.MarketNews.Queries.GetMarketNews
+﻿@using Microsoft.AspNetCore.Http;
 @using ICM.WebSites.Domain.Enums
+@using ICM.WebSites.Application.MarketNews.Queries.GetMarketNews
 @using ICM.WebSites.Application.Common.Interfaces
 
 @inject ISender Mediator
@@ -21,19 +22,26 @@
     var envelopeIconUrl = Umbraco.Media("20d554ab-1190-4aa2-a7c2-406f7b01871a")?.Url(mode: UrlMode.Absolute);
     var globeIconUrl = Umbraco.Media("4899e58f-f812-4dd9-a73c-629373f4d491")?.Url(mode: UrlMode.Absolute);
 
-    var marketNewsModel = await Mediator.Send(CreateMarketNewsQuery(Context));
+    var marketNewsQuery = CreateMarketNewsQuery(Context);
+    var result = await Mediator.Send(marketNewsQuery);
+    if (result.IsError)
+    {
+        throw new Exception(result.FirstError.ToString());
+    }
+
+    var marketNewsModel = result.Value;
 }
 
 @functions{
 
-    private GetMarketNewsQuery CreateMarketNewsQuery(Microsoft.AspNetCore.Http.HttpContext context)
+    private GetMarketNewsQuery CreateMarketNewsQuery(HttpContext context)
     {
-        if (!DateOnly.TryParseExact(Context.Request.Query["date"], "yyyyMMdd", out var date))
+        if (!DateOnly.TryParseExact(context.Request.Query["date"], "yyyyMMdd", out var date))
         {
             date = DateOnly.FromDateTime(DateTimeProvider.GetUtcNow().Date);
         }
 
-        if (!Enum.TryParse<PartsOfDay>(Context.Request.Query["date"], out var partOfDay))
+        if (!Enum.TryParse<PartsOfDay>(context.Request.Query["part-of-day"], out var partOfDay))
         {
             partOfDay = PartsOfDay.Morning;
         }
@@ -47,18 +55,18 @@
     }
 
 }
-
+@* ReSharper disable Html.Obsolete *@
+<!--suppress HtmlDeprecatedAttribute -->
 @section Header {
-    <!--suppress HtmlDeprecatedAttribute -->
-    <table class="es-header-body" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:700px">
+    <table class="es-header-body" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0;background-color:#FFFFFF;width:700px">
         <tr>
-            <td align="left" style="padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px">
+            <td align="left" style="Margin:0;padding: 20px 20px 0;">
                 <!--[if mso]><table style="width:660px" cellpadding="0"
                                     cellspacing="0"><tr><td style="width:320px" valign="top"><![endif]-->
-                <table class="es-left" cellspacing="0" cellpadding="0" align="left" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;float:left">
+                <table class="es-left" cellspacing="0" cellpadding="0" align="left" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0;float:left">
                     <tr>
                         <td class="es-m-p0r es-m-p20b" valign="top" align="center" style="padding:0;Margin:0;width:320px">
-                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                                 <tr>
                                     <td align="left" style="padding:15px 0 0 0;margin:0;font-size:0">
                                         <a href="@currentEntity.WebsiteUrl?.Url">
@@ -70,10 +78,10 @@
                         </td>
                     </tr>
                 </table><!--[if mso]></td><td style="width:20px"></td><td style="width:320px" valign="top"><![endif]-->
-                <table class="es-right" cellspacing="0" cellpadding="0" align="right" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;float:right">
+                <table class="es-right" cellspacing="0" cellpadding="0" align="right" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0;float:right">
                     <tr>
                         <td align="left" style="padding:0;Margin:0;width:320px;color:#0F4F7E">
-                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;color:#0F4F7E">
+                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0;color:#0F4F7E">
                                 <tr>
                                     <td align="right" style="padding:0;Margin:0">
                                         <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:18px;color:#035587;font-size:12px">
@@ -111,14 +119,14 @@
             </td>
         </tr>
         <tr>
-            <td align="left" style="Margin:0;padding-bottom:5px;padding-top:15px;padding-left:20px;padding-right:20px">
-                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+            <td align="left" style="Margin:0;padding: 15px 20px 5px;">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                     <tr>
                         <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
-                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                                 <tr>
                                     <td align="right" style="padding:0;Margin:0">
-                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:20px;color:#646464;font-size:13px">Monday, May 15, 2023&nbsp;|&nbsp;<a href="mailto:@Model.SenderEmail" target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#646464;font-size:13px">@Model.SenderEmail</a></p>
+                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:20px;color:#646464;font-size:13px">@marketNewsQuery.Date.ToString("D")&nbsp;|&nbsp;<a href="mailto:@Model.SenderEmail" target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#646464;font-size:13px">@Model.SenderEmail</a></p>
                                     </td>
                                 </tr>
                             </table>
@@ -128,14 +136,14 @@
             </td>
         </tr>
         <tr>
-            <td align="left" bgcolor="#44c3d2" style="Margin:0;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px;background-color:#44c3d2;border-top: solid 5px #094579">
+            <td align="left" bgcolor="#44c3d2" style="Margin:0;padding: 10px 20px;background-color:#44c3d2;border-top: solid 5px #094579">
                 <!--[if mso]><table style="width:660px" cellpadding="0" cellspacing="0"><tr><td style="width:320px" valign="top"><![endif]-->
-                <table cellpadding="0" cellspacing="0" class="es-left" align="left" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;float:left">
+                <table cellpadding="0" cellspacing="0" class="es-left" align="left" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0;float:left">
                     <tr>
                         <td class="es-m-p20b" align="left" style="padding:0;Margin:0;width:320px">
-                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                                 <tr>
-                                    <td align="left" style="padding:0;Margin:0;padding-top:5px">
+                                    <td align="left" style="Margin:0;padding: 5px 0 0;">
                                         <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#ffffff;font-size:14px">
                                             <a target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#ffffff;font-size:14px" href="@Model.CalendarUrl?.Url">Economic Calendar</a>
                                         </p>
@@ -145,17 +153,17 @@
                         </td>
                     </tr>
                 </table><!--[if mso]></td><td style="width:20px"></td><td style="width:320px" valign="top"><![endif]-->
-                <table cellpadding="0" cellspacing="0" class="es-right" align="right" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;float:right">
+                <table cellpadding="0" cellspacing="0" class="es-right" align="right" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0;float:right">
                     <tr>
                         <td align="left" style="padding:0;Margin:0;width:320px">
-                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                                 <tr>
                                     <td align="right" style="padding:0;Margin:0;font-size:0">
-                                        <table cellpadding="0" cellspacing="0" class="es-table-not-adapt es-social" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                                        <table cellpadding="0" cellspacing="0" class="es-table-not-adapt es-social" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                                             <tr>
                                                 @foreach (var link in socialMediaLinks)
                                                 {
-                                                    <td align="center" valign="top" style="padding:0;Margin:0;padding-right:5px">
+                                                    <td align="center" valign="top" style="Margin:0;padding: 0 5px 0 0;">
                                                         <a href="@link?.Url?.Url" target="_blank">
                                                             <img src="@link?.Icon?.Url(mode: UrlMode.Absolute)" alt="@link?.Title" title="@link?.Title" width="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic">
                                                         </a>
@@ -173,12 +181,12 @@
         </tr>
         <tr>
             <td align="left" style="padding:0;margin:0;border-bottom:5px solid #094579">
-                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                     <tr>
                         <td align="center" valign="top" style="padding:0;Margin:0;width:700px">
-                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                                 <tr>
-                                    <td align="center" style="padding:0;Margin:0;font-size:0px">
+                                    <td align="center" style="padding:0;Margin:0;font-size:0">
                                         <a href="@Model.Banner?.Content.Url?.Url">
                                             <img class="adapt-img" src="@Model.Banner?.Content.Image?.Url(mode: UrlMode.Absolute)" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="700">
                                         </a>
@@ -193,26 +201,29 @@
     </table>
 }
 
-<table class="es-content-body" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;width:700px">
+<table class="es-content-body" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0;background-color:#FFFFFF;width:700px">
     <tr>
         <td align="left" style="Margin:0;padding:0">
-            <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+            <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                 <tr>
                     <td valign="top" align="center" style="padding:0;Margin:0;width:660px">
-                        <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                        <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
+                            @if (marketNewsModel.VideoHtml != null)
+                            {
                             <tr>
                                 <td align="center" style="Margin:0;padding:0">
-                                        @Html.Raw(marketNewsModel.VideoHtml)
+                                    @Html.Raw(marketNewsModel.VideoHtml)
                                 </td>
                             </tr>
+                            }
                             <tr>
                                 <td align="center" style="Margin:0;padding:0">
-                                        @Html.Raw(marketNewsModel.NavigationHtml)
+                                    @Html.Raw(marketNewsModel.NavigationHtml)
                                 </td>
                             </tr>
                             <tr>
                                 <td align="center" style="Margin:0;padding: 0 0 25px;">
-                                        @Html.Raw(marketNewsModel.ContentHtml)
+                                    @Html.Raw(marketNewsModel.ContentHtml)
                                 </td>
                             </tr>
                         </table>
@@ -249,10 +260,10 @@
             <td align="left" valign="middle" style="Margin:0;padding: 30px 20px;border-top: 2px dotted #C6C6C6;border-bottom: 2px dotted #C6C6C6">
                 <!--[if mso]><table style="width:660px" cellpadding="0" 
                                     cellspacing="0"><tr><td style="width:320px" valign="top"><![endif]-->
-                <table class="es-left" cellspacing="0" cellpadding="0" align="left" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;float:left">
+                <table class="es-left" cellspacing="0" cellpadding="0" align="left" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0;float:left">
                     <tr>
                         <td class="es-m-p20b" align="left" style="padding:0;Margin:0;width:320px">
-                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                                 <tr>
                                     <td align="right" valign="middle" style="padding:0;Margin:0;font-size:0">
                                         <a href="@partners[0].Url?.Url" target="_blank">
@@ -264,10 +275,10 @@
                         </td>
                     </tr>
                 </table><!--[if mso]></td><td style="width:20px"></td><td style="width:320px" valign="middle"><![endif]-->
-                <table class="es-right" cellspacing="0" cellpadding="0" align="right" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px;float:right">
+                <table class="es-right" cellspacing="0" cellpadding="0" align="right" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0;float:right">
                     <tr>
                         <td align="left" style="padding:0;Margin:0;width:320px">
-                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                            <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                                 <tr>
                                     <td align="left" valign="middle" style="padding:0;Margin:0;font-size:0">
                                         <a href="@partners[1].Url?.Url" target="_blank">
@@ -282,11 +293,11 @@
             </td>
         </tr>
         <tr>
-            <td align="left" style="padding:0;Margin:0;padding-top:10px;padding-left:20px;padding-right:20px;border-bottom: 2px dotted #C6C6C6">
-                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+            <td align="left" style="Margin:0;padding: 10px 20px 0;border-bottom: 2px dotted #C6C6C6">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                     <tr>
                         <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
-                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                                 <tr>
                                     <td align="center" style="padding:25px;Margin:0">
                                         <table align="center" border="0" cellpadding="0" cellspacing="0" style="font-family:Verdana, Arial, Helvetica, sans-serif;text-align:justify;" width="100%">
@@ -316,7 +327,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td style="font-size:11px; color:#8d8f90; text-align: center; padding-top:10px" colspan="2">
-                                                                <a style="text-decoration: underline;color: #035587;" data-id="38712" href="/about-us/legal-documentation/" title="Legal Documentation">
+                                                                <a style="text-decoration: underline;color: #035587;" data-id="38712" href="@Model.RegulationUrl.Url" title="Regulation">
                                                                     Click here for more details
                                                                 </a>
                                                             </td>
@@ -336,11 +347,11 @@
             </td>
         </tr>
         <tr>
-            <td align="left" style="padding:0;Margin:0;padding-top:0px;padding-left:20px;padding-right:20px">
-                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+            <td align="left" style="Margin:0;padding: 0 20px 0;">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                     <tr>
                         <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
-                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                                 <tr>
                                     <td style="padding:25px;Margin:0;font-size: 0.75em;font-family: Arial, sans-serif;color: #999999;">
                                         @Html.Raw(Model.Disclaimer?.ToHtmlString())
@@ -366,10 +377,10 @@
         </tr>
         <tr>
             <td align="left" style="Margin:0;padding: 0 20px;">
-                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                     <tr>
                         <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
-                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                                 <tr>
                                     <td align="center" style="padding: 0 25px 25px;Margin:0">
                                         <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
@@ -400,10 +411,10 @@
         </tr>
         <tr>
             <td align="left" style="Margin:0;padding:0;background: #F6F6F6">
-                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                     <tr>
                         <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
-                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0px">
+                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                                 <tr>
                                     <td align="center" style="padding:5px 0 20px;Margin:0">
                                         <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:11px">
@@ -419,3 +430,4 @@
         </tr>
     </table>
 }
+@* ReSharper restore Html.Obsolete *@

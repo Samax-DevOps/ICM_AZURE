@@ -98,6 +98,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Partners => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "partners");
 
 		///<summary>
+		/// Regulation URL: Enter the regulation URL
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.4.0+e52e987")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("regulationURL")]
+		public virtual global::Umbraco.Cms.Core.Models.Link RegulationUrl => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "regulationURL");
+
+		///<summary>
 		/// Sender Email: Enter the sender email
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.4.0+e52e987")]
