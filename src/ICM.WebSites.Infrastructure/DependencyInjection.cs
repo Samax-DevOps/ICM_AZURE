@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ICM.WebSites.Infrastructure;
 
-public static class ConfigureServices
+public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services,
         IConfiguration configuration)
@@ -16,7 +16,7 @@ public static class ConfigureServices
         });
 
         services.AddTransient<ITradingCentralClient>(c => c.GetRequiredService<TradingCentralClient>());
-        services.AddSingleton<ITimeProvider, SystemTimeProvider>();
+        services.AddSingleton<IDateTimeProvider, SystemDateTimeProvider>();
         
         return services;
     }

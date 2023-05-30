@@ -2,7 +2,7 @@
 
 namespace ICM.WebSites.Infrastructure.Services;
 
-public class SystemTimeProvider : ITimeProvider
+public class SystemDateTimeProvider : IDateTimeProvider
 {
     public DateTimeOffset GetUtcNow()
     {

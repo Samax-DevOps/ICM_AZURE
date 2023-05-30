@@ -3,7 +3,7 @@
 @using ICM.WebSites.Application.Common.Interfaces
 
 @inject ISender Mediator
-@inject ITimeProvider TimeProvider
+@inject IDateTimeProvider DateTimeProvider
 
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<MarketNewsEmail>
 @{
@@ -30,7 +30,7 @@
     {
         if (!DateOnly.TryParseExact(Context.Request.Query["date"], "yyyyMMdd", out var date))
         {
-            date = DateOnly.FromDateTime(TimeProvider.GetUtcNow().Date);
+            date = DateOnly.FromDateTime(DateTimeProvider.GetUtcNow().Date);
         }
 
         if (!Enum.TryParse<PartsOfDay>(Context.Request.Query["date"], out var partOfDay))

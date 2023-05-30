@@ -1,6 +1,6 @@
 ﻿namespace ICM.WebSites.Application.Common.Interfaces;
 
-public interface ITimeProvider
+public interface IDateTimeProvider
 {
     DateTimeOffset GetUtcNow();
 }
