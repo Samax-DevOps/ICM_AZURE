@@ -41,9 +41,9 @@
             date = DateOnly.FromDateTime(DateTimeProvider.GetUtcNow().Date);
         }
 
-        if (!Enum.TryParse<PartsOfDay>(context.Request.Query["part-of-day"], out var partOfDay))
+        if (!Enum.TryParse<DayPart>(context.Request.Query["part-of-day"], out var partOfDay))
         {
-            partOfDay = PartsOfDay.Morning;
+            partOfDay = DayPart.Morning;
         }
 
         return new GetMarketNewsQuery
@@ -327,7 +327,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td style="font-size:11px; color:#8d8f90; text-align: center; padding-top:10px" colspan="2">
-                                                                <a style="text-decoration: underline;color: #035587;" data-id="38712" href="@Model.RegulationUrl.Url" title="Regulation">
+                                                                <a style="text-decoration: underline;color: #035587;" data-id="38712" href="@Model.RegulationUrl?.Url" title="Regulation">
                                                                     Click here for more details
                                                                 </a>
                                                             </td>

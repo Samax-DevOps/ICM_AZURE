@@ -12,7 +12,7 @@ namespace ICM.WebSites.Application.MarketNews.Queries.GetMarketNews;
 public record GetMarketNewsQuery : IRequest<ErrorOr<MarketNewsVm>>
 {
     public required DateOnly Date { get; init; }
-    public required PartsOfDay PartOfDay { get; init; }
+    public required DayPart PartOfDay { get; init; }
     public required string Culture { get; init; }
 }
 
