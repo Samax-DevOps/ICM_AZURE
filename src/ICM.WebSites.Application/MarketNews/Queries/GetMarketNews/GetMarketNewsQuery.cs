@@ -12,7 +12,7 @@ namespace ICM.WebSites.Application.MarketNews.Queries.GetMarketNews;
 public record GetMarketNewsQuery : IRequest<ErrorOr<MarketNewsVm>>
 {
     public required DateOnly Date { get; init; }
-    public required DayPart PartOfDay { get; init; }
+    public required DayParts DayPart { get; init; }
     public required string Culture { get; init; }
 }
 
@@ -32,8 +32,10 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
 
     public async ValueTask<ErrorOr<MarketNewsVm>> Handle(GetMarketNewsQuery request, CancellationToken cancellationToken)
     {
+        var culture = new CultureInfo(request.Culture).TwoLetterISOLanguageName;
+        
         // load html from Trading Central
-        var url = CreateUrl(request);
+        var url = $"index_{culture}_{request.DayPart}_{request.Date.ToString("yyyyMMdd")}.html";
         var html = await _tradingCentralClient.GetAsync(url);
 
         if (NotFoundRegex().IsMatch(html))
@@ -48,7 +50,7 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
         {
             var viewModel = new MarketNewsVm
             {
-                TermsAndConditionsHtml = GetTermsAndConditionsHtml(htmlDoc),
+                TermsAndConditionsHtml = GetTermsAndConditionsHtml(htmlDoc, culture),
                 ContentHtml = GetContentHtml(htmlDoc),
                 VideoHtml = GetVideoHtml(htmlDoc),
                 NavigationHtml = GetNavigationHtml(htmlDoc)
@@ -58,7 +60,8 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
         }
         catch (Exception e)
         {
-            _logger.LogError(e, Errors.TradingCentral.ParseError.ToString());
+            // ReSharper disable once TemplateIsNotCompileTimeConstantProblem
+            _logger.LogError(e, Errors.TradingCentral.ParseError.Description);
             return Errors.TradingCentral.ParseError;
         }
     }
@@ -66,7 +69,8 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
     private static string GetContentHtml(HtmlDocument htmlDoc)
     {
         // get main content
-        var contentNode = htmlDoc.GetElementbyId("MarketCommentPanel").Ancestors("table").First();
+        var contentNode = htmlDoc.DocumentNode
+            .SelectSingleNode("//comment()[contains(., 'Market Comment')]/following-sibling::table");
 
         // remove bottom border
         contentNode
@@ -77,11 +81,17 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
         return contentNode.OuterHtml;
     }
 
-    private static string GetTermsAndConditionsHtml(HtmlDocument htmlDoc)
+    private static string GetTermsAndConditionsHtml(HtmlDocument htmlDoc, string culture)
     {
+        var tcTitle = culture switch
+        {
+            "ar" => "&#1588;&#1585;&#1608;&#1591; &#1608;&#1571;&#1581;&#1603;&#1575;&#1605; TRADING CENTRAL",
+            _ => "TRADING CENTRAL Terms and conditions"
+        };
+        
         // get disclaimer and TC's
         var node = htmlDoc.DocumentNode
-            .SelectSingleNode("//td/b[starts-with(., 'TRADING CENTRAL Terms and conditions')]")
+            .SelectSingleNode($"//td/b[starts-with(., '{tcTitle}')]")
             .AncestorsAndSelf()
             .Skip(3)
             .First();
@@ -107,12 +117,5 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
             .SelectSingleNode("//comment()[contains(., 'navigation start')]/following-sibling::table");
 
         return node.OuterHtml;
-    }
-
-    private static string CreateUrl(GetMarketNewsQuery request)
-    {
-        var culture = CultureInfo.GetCultureInfo(request.Culture).TwoLetterISOLanguageName;
-
-        return $"index_{culture}_{request.PartOfDay}_{request.Date.ToString("yyyyMMdd")}.html";
     }
 }
