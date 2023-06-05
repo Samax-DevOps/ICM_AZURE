@@ -12,8 +12,12 @@
     <meta name="x-apple-disable-message-reformatting">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="telephone=no" name="format-detection">
+    @await RenderSectionAsync("Meta")
     <title>Market News</title>
-    <!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]--><!--[if gte mso 9]>
+    <!--[if gte mso 9]>
+        <style>sup { font-size: 100% !important; }</style>
+    <![endif]-->
+    <!--[if gte mso 9]>
         <xml>
             <o:OfficeDocumentSettings>
                 <o:AllowPNG></o:AllowPNG>
@@ -95,10 +99,8 @@ h3 { font-size:20px!important; text-align:left }
     filter: invert(23%) sepia(80%) saturate(923%) hue-rotate(174deg) brightness(93%) contrast(95%);
 }
 </style>
-<style type="text/css">        
+    <style type="text/css">        
     @@media screen and (max-width: 599px) {
-       
-
         body {
             font-size: 20px !important;
         }
@@ -279,7 +281,7 @@ h3 { font-size:20px!important; text-align:left }
         font-size: 16px;
         /*line-height: 1.375em; !*22px*!*/
     }
-</style>
+    </style>
 </head>
 <body style="width:100%;font-family:arial, 'helvetica neue', helvetica, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
 <div class="es-wrapper-color" style="background-color:#F6F6F6">
