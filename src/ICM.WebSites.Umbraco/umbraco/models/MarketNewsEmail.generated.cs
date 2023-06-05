@@ -82,12 +82,28 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string Entity => this.Value<string>(_publishedValueFallback, "entity");
 
 		///<summary>
+		/// Evening Email Subject: Enter the evening email Subject
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.4.0+e52e987")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("eveningEmailSubject")]
+		public virtual string EveningEmailSubject => this.Value<string>(_publishedValueFallback, "eveningEmailSubject");
+
+		///<summary>
 		/// Footer Image: Select a footer image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.4.0+e52e987")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("footerImage")]
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops FooterImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "footerImage");
+
+		///<summary>
+		/// Morning Email Subject: Enter the morning email Subject
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.4.0+e52e987")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("morningEmailSubject")]
+		public virtual string MorningEmailSubject => this.Value<string>(_publishedValueFallback, "morningEmailSubject");
 
 		///<summary>
 		/// Partners: Select partners
