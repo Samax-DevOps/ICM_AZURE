@@ -112,5 +112,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("websiteURL")]
 		public virtual global::Umbraco.Cms.Core.Models.Link WebsiteUrl => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "websiteURL");
+
+		///<summary>
+		/// Whatsapp Number: Enter the Whatsapp number
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.4.0+e52e987")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("whatsappNumber")]
+		public virtual string WhatsappNumber => this.Value<string>(_publishedValueFallback, "whatsappNumber");
 	}
 }

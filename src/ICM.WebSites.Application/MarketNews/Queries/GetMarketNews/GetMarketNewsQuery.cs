@@ -14,6 +14,7 @@ public record GetMarketNewsQuery : IRequest<ErrorOr<MarketNewsVm>>
     public required DateOnly Date { get; init; }
     public required DayParts DayPart { get; init; }
     public required string Culture { get; init; }
+    public required string TcMarker { get; set; }
 }
 
 public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQuery, ErrorOr<MarketNewsVm>>
@@ -35,8 +36,7 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
         var culture = new CultureInfo(request.Culture).TwoLetterISOLanguageName;
         
         // load html from Trading Central
-        var url = $"index_{culture}_{request.DayPart}_{request.Date.ToString("yyyyMMdd")}.html";
-        var html = await _tradingCentralClient.GetAsync(url);
+        var html = await _tradingCentralClient.GetAsync(request.Date, culture, request.DayPart);
 
         if (NotFoundRegex().IsMatch(html))
         {
@@ -50,7 +50,7 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
         {
             var viewModel = new MarketNewsVm
             {
-                TermsAndConditionsHtml = GetTermsAndConditionsHtml(htmlDoc, culture),
+                TermsAndConditionsHtml = GetTermsAndConditionsHtml(htmlDoc, request.TcMarker),
                 ContentHtml = GetContentHtml(htmlDoc),
                 VideoHtml = GetVideoHtml(htmlDoc),
                 NavigationHtml = GetNavigationHtml(htmlDoc)
@@ -81,17 +81,11 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
         return contentNode.OuterHtml;
     }
 
-    private static string GetTermsAndConditionsHtml(HtmlDocument htmlDoc, string culture)
+    private static string GetTermsAndConditionsHtml(HtmlDocument htmlDoc, string tcMarker)
     {
-        var tcTitle = culture switch
-        {
-            "ar" => "&#1588;&#1585;&#1608;&#1591; &#1608;&#1571;&#1581;&#1603;&#1575;&#1605; TRADING CENTRAL",
-            _ => "TRADING CENTRAL Terms and conditions"
-        };
-        
         // get disclaimer and TC's
         var node = htmlDoc.DocumentNode
-            .SelectSingleNode($"//td/b[starts-with(., '{tcTitle}')]")
+            .SelectSingleNode($"//td/b[starts-with(., '{tcMarker}')]")
             .AncestorsAndSelf()
             .Skip(3)
             .First();

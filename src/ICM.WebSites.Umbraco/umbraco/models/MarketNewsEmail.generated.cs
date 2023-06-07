@@ -135,5 +135,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.4.0+e52e987")]
 		[ImplementPropertyType("showEntityList")]
 		public virtual bool ShowEntityList => this.Value<bool>(_publishedValueFallback, "showEntityList");
+
+		///<summary>
+		/// T&Cs Marker: Enter the marker for Terms & Conditions
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.4.0+e52e987")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("tcMarker")]
+		public virtual string TcMarker => this.Value<string>(_publishedValueFallback, "tcMarker");
 	}
 }

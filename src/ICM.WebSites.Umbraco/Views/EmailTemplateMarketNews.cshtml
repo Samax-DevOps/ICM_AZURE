@@ -2,8 +2,11 @@
 @using ICM.WebSites.Domain.Enums
 @using ICM.WebSites.Application.MarketNews.Queries.GetMarketNews
 @using System.Globalization
+@using ICM.WebSites.Umbraco.Extensions
+@using Umbraco.Cms.Core.Services
 
 @inject ISender Mediator
+@inject ILocalizationService LocalizationService
 
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<MarketNewsEmail>
 @{
@@ -52,7 +55,8 @@
             {
                 Culture = Model.GetCultureFromDomains() ?? "en",
                 Date = DateOnly.ParseExact(query["date"]!, "yyyyMMdd"),
-                DayPart = Enum.Parse<DayParts>(query["day-part"]!, true)
+                DayPart = Enum.Parse<DayParts>(query["day-part"]!, true),
+                TcMarker = Model.TcMarker!
             };
     }
 
@@ -373,7 +377,7 @@
                                             @currentEntity.RegulationInfo
                                         </p>
                                         <p dir="@dir">
-                                            @Umbraco.GetDictionaryValue("Registered address"): @currentEntity.Address
+                                            @Umbraco.FromDictionary("Registered address"): @currentEntity.Address
                                         </p>
                                         <p>
                                             @globalSettings.RiskWarning

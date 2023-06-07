@@ -1,6 +1,8 @@
-﻿namespace ICM.WebSites.Application.Common.Interfaces;
+﻿using ICM.WebSites.Domain.Enums;
+
+namespace ICM.WebSites.Application.Common.Interfaces;
 
 public interface ITradingCentralClient
 {
-    Task<string> GetAsync(string url);
+    Task<string> GetAsync(DateOnly date, string culture, DayParts dayPart);
 }
