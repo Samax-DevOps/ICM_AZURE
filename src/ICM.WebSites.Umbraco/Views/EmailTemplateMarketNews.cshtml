@@ -1,14 +1,12 @@
-﻿@using Microsoft.AspNetCore.Http;
-@using ICM.WebSites.Domain.Enums
-@using ICM.WebSites.Application.MarketNews.Queries.GetMarketNews
-@using System.Globalization
-@using ICM.WebSites.Umbraco.Extensions
-@using Umbraco.Cms.Core.Services
-
-@inject ISender Mediator
+﻿@inject ISender Mediator
 @inject ILocalizationService LocalizationService
 
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<MarketNewsEmail>
+@using ICM.WebSites.Umbraco.Extensions
+@using Umbraco.Cms.Core.Services
+@using ICM.WebSites.Application.MarketNews.Queries.GetMarketNews
+@using ICM.WebSites.Domain.Enums
+@using System.Globalization
+@inherits UmbracoViewPage<MarketNewsEmail>
 @{
     Layout = "EmailTemplate.cshtml";
 
@@ -64,8 +62,8 @@
 
 @section Meta {
     <!--suppress ALL -->
-    <meta content="email-sender" name="@Model.SenderEmail">
-    <meta content="email-subject" name="@emailSubject">
+    <meta name="email-sender" content="@Model.SenderEmail">
+    <meta name="email-subject" content="@emailSubject">
 }
 
 @* ReSharper disable Html.Obsolete *@
