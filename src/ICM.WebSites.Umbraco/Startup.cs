@@ -53,6 +53,16 @@ namespace ICM.WebSites.Umbraco
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            //Registered before static files to always set header
+            app.UseXContentTypeOptions();
+            app.UseReferrerPolicy(opts => opts.NoReferrer());
+
+            app.UseStaticFiles();
+            
+            //Registered after static files, to set headers for dynamic content.
+            app.UseXfo(xfo => xfo.Deny());
+            app.UseRedirectValidation(); //Register this earlier if there's middleware that might redirect.
 
             app.UseUmbraco()
                 .WithMiddleware(u =>

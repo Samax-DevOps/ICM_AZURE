@@ -60,7 +60,7 @@
 
 @section Meta {
     <!--suppress ALL -->
-<meta content="email-sender" name="@Model.SenderEmail">
+    <meta content="email-sender" name="@Model.SenderEmail">
     <meta content="email-subject" name="@emailSubject">
 }
 
@@ -320,7 +320,7 @@
                                             <tbody>
                                             <tr>
                                                 <td style="font-size:11px; color:#8d8f90;" dir="@dir">
-                                                    <table  border="0" cellspacing="0" cellpadding="0" style="font-size:11px; color:#8d8f90;">
+                                                    <table border="0" cellspacing="0" cellpadding="0" style="font-size:11px; color:#8d8f90;">
                                                         <tbody>
                                                         @foreach (var entity in entities)
                                                         {
@@ -337,13 +337,16 @@
                                                     </table>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td style="font-size:11px; color:#8d8f90; text-align: center; padding-top:10px" colspan="2">
-                                                    <a style="text-decoration: underline;color: #035587;" data-id="38712" href="@Model.RegulationUrl.Url" title="Regulation">
-                                                        @Umbraco.GetDictionaryValue("Click here for more details")
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                            @if (Model.RegulationUrl != null)
+                                            {
+                                                <tr>
+                                                    <td style="font-size:11px; color:#8d8f90; text-align: center; padding-top:10px" colspan="2">
+                                                        <a style="text-decoration: underline;color: #035587;" data-id="38712" href="@Model.RegulationUrl.Url" title="Regulation">
+                                                            @Umbraco.GetDictionaryValue("Click here for more details")
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            }
                                             </tbody>
                                         </table>
                                     </td>

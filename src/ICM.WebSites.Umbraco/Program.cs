@@ -16,7 +16,8 @@ public static class Program
             .ConfigureWebHostDefaults(webBuilder =>
             {
                 webBuilder.UseStaticWebAssets();
-                webBuilder.UseStartup<Startup>();
+                webBuilder.UseStartup<Startup>()
+                    .UseKestrel(options => options.AddServerHeader = false);
             });
     }
 }
