@@ -5,30 +5,44 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <LangVersion>latest</LangVersion>
+        <!-- SpaYarp configuration -->
+        <SpaRoot>frontend\</SpaRoot>
+        <SpaClientUrl>http://localhost:44400</SpaClientUrl>
+        <SpaLaunchCommand>vite</SpaLaunchCommand>
     </PropertyGroup>
+    
+    <Target Name="DebugEnsurePnpm" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+        <!-- Ensure pnpm is installed -->
+        <Exec Command="pnpm --version" ContinueOnError="true">
+            <Output TaskParameter="ExitCode" PropertyName="ErrorCode"/>
+        </Exec>
+        <Error Condition="'$(ErrorCode)' != '0'" Text="pnpm is required to build and run this project. To continue, please install pnpm from https://pnpm.io/installation, and then restart your command prompt or IDE."/>
+        <Message Importance="high" Text="Restoring dependencies using 'pnpm'. This may take several minutes..."/>
+        <Exec WorkingDirectory="$(SpaRoot)" Command="pnpm install"/>
+    </Target>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0-1.final" />
-        <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0" />
-        <PackageReference Include="Umbraco.Cms" Version="11.4.0" />
-        <PackageReference Include="uSync" Version="11.2.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0-1.final"/>
+        <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0"/>
+        <PackageReference Include="Umbraco.Cms" Version="11.4.0"/>
+        <PackageReference Include="uSync" Version="11.2.0"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\ICM.WebSites.Application\ICM.WebSites.Application.csproj" />
-        <ProjectReference Include="..\ICM.WebSites.Domain\ICM.WebSites.Domain.csproj" />
-        <ProjectReference Include="..\ICM.WebSites.Infrastructure\ICM.WebSites.Infrastructure.csproj" />
+        <ProjectReference Include="..\ICM.WebSites.Application\ICM.WebSites.Application.csproj"/>
+        <ProjectReference Include="..\ICM.WebSites.Domain\ICM.WebSites.Domain.csproj"/>
+        <ProjectReference Include="..\ICM.WebSites.Infrastructure\ICM.WebSites.Infrastructure.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
         <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
-        <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
-        <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+        <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9"/>
+        <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))"/>
     </ItemGroup>
 
     <ItemGroup>
         <Content Update="Views\EmailTemplateMarketNews.cshtml">
-          <DependentUpon>EmailTemplate.cshtml</DependentUpon>
+            <DependentUpon>EmailTemplate.cshtml</DependentUpon>
         </Content>
     </ItemGroup>
 
