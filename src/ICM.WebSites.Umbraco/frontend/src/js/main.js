@@ -1,5 +1,3 @@
-﻿// Import our custom CSS
-import '../scss/styles.scss'
-
-// Import all of Bootstrap's JS
-import * as bootstrap from 'bootstrap'
+﻿(function ($window) {
+    console.log('Starting app...');
+})(window);

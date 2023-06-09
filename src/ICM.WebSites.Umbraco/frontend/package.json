@@ -2,11 +2,11 @@
   "name": "icm.websites.frontend",
   "version": "1.0.0",
   "description": "ICM WebSites Frontend",
-  "main": "index.js",
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "test": "pnpm run build"  },
+    "test": "pnpm run build"
+  },
   "keywords": [],
   "author": "ICM Capital LTD",
   "license": "ISC",

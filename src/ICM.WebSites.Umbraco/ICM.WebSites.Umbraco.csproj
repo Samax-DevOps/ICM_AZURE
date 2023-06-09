@@ -5,7 +5,27 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <LangVersion>latest</LangVersion>
+        <SpaRoot>frontend\</SpaRoot>
+        <SpaProxyServerUrl>https://localhost:44403</SpaProxyServerUrl>
+        <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="8.0.0-preview.4.23260.4">
+            <Publish>false</Publish>
+        </PackageReference>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0-1.final"/>
+        <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0"/>
+        <PackageReference Include="Umbraco.Cms" Version="11.4.0"/>
+        <PackageReference Include="uSync" Version="11.2.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- Don't publish the SPA source files, but do show them in the project files list -->
+        <Content Remove="$(SpaRoot)**"/>
+        <None Remove="$(SpaRoot)**"/>
+        <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**"/>
+    </ItemGroup>
 
     <Target Name="DebugEnsurePnpm" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('frontend\node_modules') ">
         <!-- Ensure pnpm is installed -->
@@ -17,12 +37,21 @@
         <Exec WorkingDirectory="frontend" Command="pnpm install"/>
     </Target>
 
-    <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.7.0-1.final"/>
-        <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0"/>
-        <PackageReference Include="Umbraco.Cms" Version="11.4.0"/>
-        <PackageReference Include="uSync" Version="11.2.0"/>
-    </ItemGroup>
+    <Target Name="PublishRunVite" AfterTargets="ComputeFilesToPublish">
+        <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+        <Exec WorkingDirectory="$(SpaRoot)" Command="pnpm install"/>
+        <Exec WorkingDirectory="$(SpaRoot)" Command="pnpm run build -- --configuration production"/>
+
+        <!-- Include the newly-built files in the publish output -->
+        <ItemGroup>
+            <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**"/>
+            <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+                <RelativePath>wwwroot\%(RecursiveDir)%(FileName)%(Extension)</RelativePath>
+                <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+                <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            </ResolvedFileToPublish>
+        </ItemGroup>
+    </Target>
 
     <ItemGroup>
         <ProjectReference Include="..\ICM.WebSites.Application\ICM.WebSites.Application.csproj"/>
