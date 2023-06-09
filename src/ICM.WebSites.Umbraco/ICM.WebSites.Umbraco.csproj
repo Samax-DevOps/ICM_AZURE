@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
-    
+
     <Target Name="DebugEnsurePnpm" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('frontend\node_modules') ">
         <!-- Ensure pnpm is installed -->
         <Exec Command="pnpm --version" ContinueOnError="true">
