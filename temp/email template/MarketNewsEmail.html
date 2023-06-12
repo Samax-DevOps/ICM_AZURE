@@ -39,22 +39,41 @@
                 padding: 0;
                 margin: 0;
             }
-            @media screen and (max-width: 575px) {
-                .col-lg {
+            td {
+                padding: 0;
+            }
+            a {
+                color: #035587;
+                text-decoration: none !important;
+            }
+            a:hover {
+                text-decoration: underline !important;
+            }
+            /* @media screen and (max-width: 575px) {
+                .col-6 {
                     max-width: 100% !important;
                 }
             }
             @media screen and (min-width: 576px) {
-                .col-sm {
-                    max-width: 27% !important;
-                }
-                .col-lg {
-                    max-width: 73% !important;
+                .col-6 {
+                    max-width: 50% !important;
                 }
             }
+            .col-12 {
+                max-width: 100% !important;
+            } */
         </style>
     </head>
-    <body style="margin: 0; padding: 0; word-spacing: normal">
+    <body
+        style="
+            margin: 0;
+            padding: 0;
+            word-spacing: normal;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 13px;
+            color: #363636;
+        "
+    >
         <div style="text-size-adjust: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%">
             <table style="width: 100%; border: none; border-spacing: 0">
                 <tr>
@@ -62,49 +81,102 @@
                         <!--[if mso]>
                         <table align="center" style="width:700px;">
                         <tr>
-                        <td>
+                        <td style="padding: 20px">
                         <![endif]-->
-                        <table
-                            style="
-                                width: 94%;
-                                max-width: 700px;
-                                border: none;
-                                border-spacing: 0;
-                                text-align: left;
-                                font-size: 16px;
-                                line-height: 22px;
-                                color: #363636;
-                            "
-                        >
+                        <table style="width: 100%; max-width: 700px; border: none; border-spacing: 0; text-align: left">
                             <!-- header row -->
                             <tr>
-                                <td
-                                    style="
-                                        padding: 40px 30px 30px 30px;
-                                        text-align: center;
-                                        font-size: 24px;
-                                        font-weight: bold;
-                                        background-color: aqua;
-                                    "
-                                >
-                                    <a href="http://www.example.com/" style="text-decoration: none">
-                                        <img
-                                            src="https://assets.codepen.io/210284/logo.png"
-                                            width="165"
-                                            alt="Logo"
-                                            style="
-                                                width: 165px;
-                                                max-width: 80%;
-                                                height: auto;
-                                                border: none;
-                                                text-decoration: none;
-                                                color: #ffffff;
-                                            "
-                                        />
-                                    </a>
+                                <td style="background-color: coral; padding: 20px; border: 0">
+                                    <!--[if mso]>
+                                    <table width="100%">
+                                    <tr>
+                                    <td style="width:50%;" align="left" valign="top">
+                                    <![endif]-->
+                                    <div
+                                        class="col-6"
+                                        style="
+                                            display: inline-block;
+                                            width: 100%;
+                                            max-width: 328px;
+                                            vertical-align: top;
+                                            text-align: left;
+                                            color: #035587;
+                                        "
+                                    >
+                                        <a href="https://www.icm.com/" target="_blank">
+                                            <img
+                                                src="http://local.icm.com:5000/media/f54hympk/icm-default-logo.png"
+                                                width="250"
+                                                alt=""
+                                            />
+                                        </a>
+                                    </div>
+                                    <!--[if mso]>
+                                    </td>
+                                    <td style="width:50%;" valign="top">
+                                    <![endif]-->
+                                    <div
+                                        class="col-6"
+                                        style="
+                                            display: inline-block;
+                                            width: 100%;
+                                            max-width: 325px;
+                                            vertical-align: middle;
+                                            font-size: 13px;
+                                            line-height: 20px;
+                                            color: #035587;
+                                            text-align: right;
+                                        "
+                                    >
+                                        <div style="display: flex; align-items: center; justify-content: right">
+                                            <a href="#">+44 207 634 9779</a>
+                                            <img
+                                                style="margin-left: 8px; width: 14px; height: 14px"
+                                                src="http://local.icm.com:5000/assets/images/icons/telephone.svg"
+                                            />
+                                        </div>
+                                        <div style="display: flex; align-items: center; justify-content: right">
+                                            <a href="#">+44 207 634 9779</a>
+                                            <img
+                                                style="margin-left: 7px; width: 14px; height: 14px"
+                                                src="http://local.icm.com:5000/assets/images/icons/whatsapp.svg"
+                                            />
+                                        </div>
+                                        <div style="display: flex; align-items: center; justify-content: right">
+                                            <a href="#">support@icm.com</a>
+                                            <img
+                                                style="margin-left: 10px; width: 14px; height: 14px"
+                                                src="http://local.icm.com:5000/assets/images/icons/envelope.svg"
+                                            />
+                                        </div>
+                                        <div style="display: flex; align-items: center; justify-content: right">
+                                            <a href="#">https://www.icm.com</a>
+                                            <img
+                                                style="margin-left: 10px; width: 14px; height: 14px"
+                                                src="http://local.icm.com:5000/assets/images/icons/globe2.svg"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div
+                                        style="
+                                            display: none;
+                                            background-color: pink;
+                                            text-align: right;
+                                            margin: 10px 0 0;
+                                            padding: 10px 0;
+                                        "
+                                    >
+                                        07 June 2023 | marketupdate@icm.com
+                                    </div>
+                                    <!--[if mso]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
                                 </td>
                             </tr>
                             <!-- / end of header row -->
+                            <!-- body rows -->
                             <tr>
                                 <td style="padding: 30px; background-color: #ffffff">
                                     <h1
@@ -155,23 +227,22 @@
                                 <td
                                     style="
                                         padding: 35px 30px 11px 30px;
-                                        font-size: 0;
                                         background-color: #ffffff;
                                         border-bottom: 1px solid #f0f0f5;
                                         border-color: rgba(201, 201, 207, 0.35);
                                     "
                                 >
                                     <!--[if mso]>
-                                <table width="100%">
-                                <tr>
-                                <td style="width:145px;" align="left" valign="top">
-                                <![endif]-->
+                                    <table width="100%">
+                                    <tr>
+                                    <td style="width:50%;" align="left" valign="top">
+                                    <![endif]-->
                                     <div
-                                        class="col-sml"
+                                        class="col-6"
                                         style="
                                             display: inline-block;
                                             width: 100%;
-                                            max-width: 145px;
+                                            max-width: 265px;
                                             vertical-align: top;
                                             text-align: left;
                                             font-family: Arial, sans-serif;
@@ -188,14 +259,14 @@
                                     </div>
                                     <!--[if mso]>
                                     </td>
-                                    <td style="width:395px;padding-bottom:20px;" valign="top">
+                                    <td style="width:50%;padding-bottom:20px;" valign="top">
                                     <![endif]-->
                                     <div
-                                        class="col-lge"
+                                        class="col-6"
                                         style="
                                             display: inline-block;
                                             width: 100%;
-                                            max-width: 395px;
+                                            max-width: 265px;
                                             vertical-align: top;
                                             padding-bottom: 20px;
                                             font-family: Arial, sans-serif;
@@ -290,6 +361,7 @@
                                     </p>
                                 </td>
                             </tr>
+                            <!-- / end of body rows -->
                             <!-- footer row -->
                             <tr>
                                 <td
