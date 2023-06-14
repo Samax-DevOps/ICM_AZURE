@@ -6,7 +6,7 @@ using MimeKit;
 
 var message = new MimeMessage ();
 message.From.Add (new MailboxAddress ("Vit Mihaescu", "vitalii.mihaescu@icmcapital.co.uk"));
-message.From.Add (new MailboxAddress ("Vit Mihaescu", "vit.mihaescu@gmail.com"));
+message.To.Add (new MailboxAddress ("Vit Mihaescu", "vit.mihaescu@gmail.com"));
 message.To.Add (new MailboxAddress ("Vit Mihaescu", "vitalii.mihaescu@icmcapital.co.uk"));
 message.Subject = "Email Template Test";
 
