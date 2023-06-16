@@ -43,7 +43,11 @@
                 display: block !important;
                 min-width: 100% !important;
                 width: 100% !important;
-                background: #333545;
+                background: #dedede;
+                background-image: url(https://next.icm.com/assets/images/background.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
                 -webkit-text-size-adjust: none;
             }
             a {
@@ -66,6 +70,12 @@
             .text-footer2 a {
                 color: #c3c3c3 !important;
             }
+            .header-text-left {
+                text-align: left;
+            }
+            .header-text-right {
+                text-align: right;
+            }
 
             /* Mobile styles */
             @media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
@@ -81,8 +91,11 @@
                     margin-right: auto !important;
                 }
 
-                .center {
+                .center,
+                .header-text-left,
+                .header-text-right {
                     margin: 0 auto !important;
+                    text-align: center;
                 }
 
                 .td {
@@ -218,17 +231,16 @@
             display: block !important;
             min-width: 100% !important;
             width: 100% !important;
-            background: #333545;
             -webkit-text-size-adjust: none;
         "
     >
-        <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#333545">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <td align="center" valign="top">
                     <!-- Main -->
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                            <td align="center" class="main" style="padding: 0px 0px 20px 0px">
+                            <td align="center" class="main" style="padding: 0">
                                 <table width="650" border="0" cellspacing="0" cellpadding="0" class="mobile-shell">
                                     <tr>
                                         <td
@@ -241,6 +253,7 @@
                                                 padding: 0;
                                                 margin: 0;
                                                 font-weight: normal;
+                                                background-color: white;
                                             "
                                         >
                                             <!-- Header -->
@@ -252,18 +265,18 @@
                                                 bgcolor="#ffffff"
                                             >
                                                 <tr>
-                                                    <td style="padding: 30px 0px 30px 30px">
+                                                    <td style="padding: 20px; border-bottom: solid 1px red">
                                                         <table
                                                             width="100%"
                                                             border="0"
                                                             cellspacing="0"
                                                             cellpadding="0"
-                                                            dir="rtl"
-                                                            style="direction: rtl"
+                                                            dir="ltr"
+                                                            style="direction: ltr"
                                                         >
                                                             <tr>
                                                                 <th
-                                                                    class="column-dir"
+                                                                    class="column-dir img m-center mpb10"
                                                                     dir="ltr"
                                                                     style="
                                                                         font-size: 0pt;
@@ -272,59 +285,29 @@
                                                                         margin: 0;
                                                                         font-weight: normal;
                                                                         direction: ltr;
+                                                                        text-align: left;
                                                                     "
                                                                 >
-                                                                    <table
-                                                                        width="100%"
+                                                                    <img
+                                                                        class="logo"
+                                                                        src="https://next.icm.com/assets/images/icm-logo.png"
                                                                         border="0"
-                                                                        cellspacing="0"
-                                                                        cellpadding="0"
+                                                                        alt=""
+                                                                        style="width: 75%"
+                                                                    />
+                                                                    <div
+                                                                        class="header-text-left"
+                                                                        style="
+                                                                            color: #85868d;
+                                                                            padding-top: 5px;
+                                                                            font-family: 'Raleway', Arial, sans-serif;
+                                                                            font-size: 16px;
+                                                                            line-height: 18px;
+                                                                        "
                                                                     >
-                                                                        <tr>
-                                                                            <td
-                                                                                class="img-right"
-                                                                                style="
-                                                                                    font-size: 0pt;
-                                                                                    line-height: 0pt;
-                                                                                    text-align: right;
-                                                                                "
-                                                                            >
-                                                                                <image
-                                                                                    src="images/free.jpg"
-                                                                                    width="118"
-                                                                                    height="38"
-                                                                                    border="0"
-                                                                                    alt=""
-                                                                                />
-                                                                            </td>
-                                                                        </tr>
-                                                                    </table>
-                                                                </th>
-                                                                <th
-                                                                    class="column-empty"
-                                                                    width="1"
-                                                                    style="
-                                                                        font-size: 0pt;
-                                                                        line-height: 0pt;
-                                                                        padding: 0;
-                                                                        margin: 0;
-                                                                        font-weight: normal;
-                                                                    "
-                                                                ></th>
-                                                                <th
-                                                                    class="column-dir"
-                                                                    dir="ltr"
-                                                                    width="200"
-                                                                    style="
-                                                                        font-size: 0pt;
-                                                                        line-height: 0pt;
-                                                                        padding: 0;
-                                                                        margin: 0;
-                                                                        font-weight: normal;
-                                                                        direction: ltr;
-                                                                    "
-                                                                >
-                                                                    <table
+                                                                        Friday, 16 June 2032
+                                                                    </div>
+                                                                    <!-- <table
                                                                         width="100%"
                                                                         border="0"
                                                                         cellspacing="0"
@@ -339,17 +322,40 @@
                                                                                     text-align: left;
                                                                                 "
                                                                             >
-                                                                                <image
-                                                                                    src="images/logo.png"
-                                                                                    width="197"
-                                                                                    height="14"
+                                                                                <img
+                                                                                    class="logo"
+                                                                                    src="https://next.icm.com/assets/images/icm-logo.png"
                                                                                     border="0"
                                                                                     alt=""
                                                                                 />
                                                                             </td>
                                                                         </tr>
-                                                                    </table>
+                                                                    </table> -->
                                                                 </th>
+                                                                <td
+                                                                    class="column-dir header-text-right"
+                                                                    dir="ltr"
+                                                                    width="350"
+                                                                    valign="top"
+                                                                    style="
+                                                                        font-size: 13px;
+                                                                        line-height: 18px;
+                                                                        padding: 0;
+                                                                        margin: 0;
+                                                                        font-family: 'Raleway', Arial, sans-serif;
+                                                                        font-weight: normal;
+                                                                        direction: ltr;
+                                                                        color: #85868d;
+                                                                        background-color: aquamarine;
+                                                                    "
+                                                                >
+                                                                    <div
+                                                                        style="background-color: greenyellow"
+                                                                        class="header-text-right"
+                                                                    >
+                                                                        asfadf
+                                                                    </div>
+                                                                </td>
                                                             </tr>
                                                         </table>
                                                     </td>
@@ -447,6 +453,7 @@
                                                                         padding: 0;
                                                                         margin: 0;
                                                                         font-weight: normal;
+                                                                        background-color: lightblue;
                                                                     "
                                                                 >
                                                                     <table
@@ -575,8 +582,8 @@
                                                                                     text-align: right;
                                                                                 "
                                                                             >
-                                                                                <image
-                                                                                    src="images/free.jpg"
+                                                                                <img
+                                                                                    src="https://next.icm.com/assets/images/free.jpg"
                                                                                     width="118"
                                                                                     height="38"
                                                                                     border="0"
@@ -625,8 +632,8 @@
                                                                                     text-align: left;
                                                                                 "
                                                                             >
-                                                                                <image
-                                                                                    src="images/logo.png"
+                                                                                <img
+                                                                                    src="https://next.icm.com/assets/images/logo.png"
                                                                                     width="197"
                                                                                     height="14"
                                                                                     border="0"
@@ -673,8 +680,8 @@
                                                                         text-align: left;
                                                                     "
                                                                 >
-                                                                    <image
-                                                                        src="images/t3_image1.jpg"
+                                                                    <img
+                                                                        src="https://next.icm.com/assets/images/t3_image1.jpg"
                                                                         width="325"
                                                                         height="400"
                                                                         border="0"
@@ -880,8 +887,8 @@
                                                                                                 padding-bottom: 20px;
                                                                                             "
                                                                                         >
-                                                                                            <image
-                                                                                                src="images/t4_image4.jpg"
+                                                                                            <img
+                                                                                                src="https://next.icm.com/assets/images/t4_image4.jpg"
                                                                                                 width="190"
                                                                                                 height="240"
                                                                                                 border="0"
@@ -1057,8 +1064,8 @@
                                                                                                 padding-bottom: 20px;
                                                                                             "
                                                                                         >
-                                                                                            <image
-                                                                                                src="images/t4_image5.jpg"
+                                                                                            <img
+                                                                                                src="https://next.icm.com/assets/images/t4_image5.jpg"
                                                                                                 width="190"
                                                                                                 height="240"
                                                                                                 border="0"
@@ -1235,8 +1242,8 @@
                                                                                                 padding-bottom: 20px;
                                                                                             "
                                                                                         >
-                                                                                            <image
-                                                                                                src="images/t4_image6.jpg"
+                                                                                            <img
+                                                                                                src="https://next.icm.com/assets/images/t4_image6.jpg"
                                                                                                 width="190"
                                                                                                 height="240"
                                                                                                 border="0"
@@ -1416,8 +1423,8 @@
                                                                         text-align: left;
                                                                     "
                                                                 >
-                                                                    <image
-                                                                        src="images/t4_image7.jpg"
+                                                                    <img
+                                                                        src="https://next.icm.com/assets/images/t4_image7.jpg"
                                                                         width="220"
                                                                         height="295"
                                                                         border="0"
@@ -1639,8 +1646,8 @@
                                                                                                 padding-bottom: 20px;
                                                                                             "
                                                                                         >
-                                                                                            <image
-                                                                                                src="images/t2_image2.jpg"
+                                                                                            <img
+                                                                                                src="https://next.icm.com/assets/images/t2_image2.jpg"
                                                                                                 width="280"
                                                                                                 height="410"
                                                                                                 border="0"
@@ -1829,8 +1836,8 @@
                                                                                                 padding-bottom: 20px;
                                                                                             "
                                                                                         >
-                                                                                            <image
-                                                                                                src="images/t2_image3.jpg"
+                                                                                            <img
+                                                                                                src="https://next.icm.com/assets/images/t2_image3.jpg"
                                                                                                 width="280"
                                                                                                 height="410"
                                                                                                 border="0"
@@ -2034,8 +2041,8 @@
                                                                                 "
                                                                             >
                                                                                 <a href="#" target="_blank">
-                                                                                    <image
-                                                                                        src="images/t_white_ico_facebook.png"
+                                                                                    <img
+                                                                                        src="https://next.icm.com/assets/images/t_white_ico_facebook.png"
                                                                                         width="40"
                                                                                         height="40"
                                                                                         border="0"
@@ -2053,8 +2060,8 @@
                                                                                 "
                                                                             >
                                                                                 <a href="#" target="_blank">
-                                                                                    <image
-                                                                                        src="images/t_white_ico_twitter.png"
+                                                                                    <img
+                                                                                        src="https://next.icm.com/assets/images/t_white_ico_twitter.png"
                                                                                         width="40"
                                                                                         height="40"
                                                                                         border="0"
@@ -2072,8 +2079,8 @@
                                                                                 "
                                                                             >
                                                                                 <a href="#" target="_blank">
-                                                                                    <image
-                                                                                        src="images/t_white_ico_gplus.png"
+                                                                                    <img
+                                                                                        src="https://next.icm.com/assets/images/t_white_ico_gplus.png"
                                                                                         width="40"
                                                                                         height="40"
                                                                                         border="0"
@@ -2091,8 +2098,8 @@
                                                                                 "
                                                                             >
                                                                                 <a href="#" target="_blank">
-                                                                                    <image
-                                                                                        src="images/t_white_ico_youtube.png"
+                                                                                    <img
+                                                                                        src="https://next.icm.com/assets/images/t_white_ico_youtube.png"
                                                                                         width="40"
                                                                                         height="40"
                                                                                         border="0"
@@ -2110,8 +2117,8 @@
                                                                                 "
                                                                             >
                                                                                 <a href="#" target="_blank">
-                                                                                    <image
-                                                                                        src="images/t_white_ico_pinterest.png"
+                                                                                    <img
+                                                                                        src="https://next.icm.com/assets/images/t_white_ico_pinterest.png"
                                                                                         width="40"
                                                                                         height="40"
                                                                                         border="0"
@@ -2129,8 +2136,8 @@
                                                                                 "
                                                                             >
                                                                                 <a href="#" target="_blank">
-                                                                                    <image
-                                                                                        src="images/t_white_ico_linkedin.png"
+                                                                                    <img
+                                                                                        src="https://next.icm.com/assets/images/t_white_ico_linkedin.png"
                                                                                         width="40"
                                                                                         height="40"
                                                                                         border="0"
