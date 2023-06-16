@@ -54,9 +54,7 @@
                 color: #074e7f;
                 text-decoration: none;
             }
-            a:hover {
-                text-decoration: underline;
-            }
+
             p {
                 padding: 0 !important;
                 margin: 0 !important;
@@ -71,6 +69,15 @@
             .header-text-right div img {
                 margin-left: 2px;
             }
+            .header-text-right table {
+                margin: 0;
+                margin-left: auto;
+            }
+            .header-text-left table {
+                margin: 0;
+                margin-right: auto;
+            }
+
             .mcnPreviewText {
                 display: none !important;
             }
@@ -106,6 +113,10 @@
                 .header-text-right {
                     margin: 0 auto !important;
                     text-align: center;
+                }
+                .header-text-left table,
+                .header-text-right table {
+                    margin: 0 auto;
                 }
 
                 .td {
@@ -273,15 +284,10 @@
                                                 cellspacing="0"
                                                 cellpadding="0"
                                                 bgcolor="#ffffff"
+                                                style="border-top: solid 5px #074e7f"
                                             >
                                                 <tr>
-                                                    <td
-                                                        style="
-                                                            padding: 20px;
-                                                            padding-bottom: 15px;
-                                                            border-bottom: solid 3px #074e7f;
-                                                        "
-                                                    >
+                                                    <td style="padding: 20px; padding-bottom: 15px">
                                                         <table
                                                             width="100%"
                                                             border="0"
@@ -309,13 +315,13 @@
                                                                         src="https://next.icm.com/assets/images/icm-logo.png"
                                                                         border="0"
                                                                         alt=""
-                                                                        style="width: 75%"
+                                                                        style="width: 75%; max-width: 250px"
                                                                     />
                                                                     <div
                                                                         class="header-text-left"
                                                                         style="
                                                                             color: #85868d;
-                                                                            margin-top: 10px !important;
+                                                                            margin-top: 8px !important;
                                                                             margin-left: 2px !important;
                                                                             font-family: 'Raleway', Arial, sans-serif;
                                                                             font-size: 16px;
@@ -325,7 +331,7 @@
                                                                         Friday, 16 June 2032
                                                                     </div>
                                                                 </th>
-                                                                <td
+                                                                <th
                                                                     class="column-dir"
                                                                     dir="ltr"
                                                                     width="350"
@@ -381,12 +387,198 @@
                                                                             alt=""
                                                                         />
                                                                     </div>
-                                                                </td>
+                                                                </th>
                                                             </tr>
                                                         </table>
                                                     </td>
                                                 </tr>
                                             </table>
+                                            <table
+                                                width="100%"
+                                                border="0"
+                                                cellspacing="0"
+                                                cellpadding="0"
+                                                bgcolor="#074e7f"
+                                                style="border-top: solid 5px #8c845e"
+                                            >
+                                                <tr>
+                                                    <td style="padding: 8px 20px">
+                                                        <table
+                                                            width="100%"
+                                                            border="0"
+                                                            cellspacing="0"
+                                                            cellpadding="0"
+                                                            dir="ltr"
+                                                            style="direction: ltr; background-color: #074e7f"
+                                                        >
+                                                            <tr>
+                                                                <th
+                                                                    class="column-dir img m-center mpb10"
+                                                                    dir="ltr"
+                                                                    style="
+                                                                        font-size: 0pt;
+                                                                        line-height: 0pt;
+                                                                        padding: 0;
+                                                                        margin: 0;
+                                                                        font-weight: normal;
+                                                                        direction: ltr;
+                                                                        text-align: left;
+                                                                    "
+                                                                >
+                                                                    <div
+                                                                        class="header-text-left"
+                                                                        style="
+                                                                            color: #85868d;
+                                                                            font-family: 'Raleway', Arial, sans-serif;
+                                                                            font-size: 14px;
+                                                                            line-height: 18px;
+                                                                        "
+                                                                    >
+                                                                        <table
+                                                                            border="0"
+                                                                            cellspacing="0"
+                                                                            cellpadding="0"
+                                                                        >
+                                                                            <tr>
+                                                                                <td style="padding-right: 5px">
+                                                                                    <img
+                                                                                        src="https://next.icm.com/assets/icons/calendar3.svg"
+                                                                                        alt=""
+                                                                                    />
+                                                                                </td>
+                                                                                <td style="padding-top: 2px">
+                                                                                    <a
+                                                                                        href="#"
+                                                                                        style="
+                                                                                            color: white;
+                                                                                            font-family: Raleway, Arial,
+                                                                                                sans-serif;
+                                                                                            font-size: 14px;
+                                                                                        "
+                                                                                    >
+                                                                                        Economic Calendar
+                                                                                    </a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                </th>
+                                                                <th
+                                                                    class="column-dir header-text-right"
+                                                                    dir="ltr"
+                                                                    width="350"
+                                                                    valign="top"
+                                                                    align="right"
+                                                                    style="
+                                                                        padding: 0;
+                                                                        margin: 0;
+                                                                        font-family: 'Raleway', Arial, sans-serif;
+                                                                        font-weight: normal;
+                                                                        font-size: 14px;
+                                                                        direction: ltr;
+                                                                        color: #85868d;
+                                                                        text-align: right;
+                                                                    "
+                                                                >
+                                                                    <div
+                                                                        class="header-text-right"
+                                                                        style="font-size: 14; line-height: 18px"
+                                                                    >
+                                                                        <table cellspacing="0" cellpadding="1">
+                                                                            <tr>
+                                                                                <td style="padding-right: 5px">
+                                                                                    <a href="#">
+                                                                                        <img
+                                                                                            src="https://next.icm.com/assets/icons/linkedin.svg"
+                                                                                            alt=""
+                                                                                        />
+                                                                                    </a>
+                                                                                </td>
+                                                                                <td style="padding-right: 5px">
+                                                                                    <a href="#">
+                                                                                        <img
+                                                                                            src="https://next.icm.com/assets/icons/youtube.svg"
+                                                                                            alt=""
+                                                                                        />
+                                                                                    </a>
+                                                                                </td>
+                                                                                <td style="padding-right: 5px">
+                                                                                    <a href="#">
+                                                                                        <img
+                                                                                            src="https://next.icm.com/assets/icons/instagram.svg"
+                                                                                            alt=""
+                                                                                        />
+                                                                                    </a>
+                                                                                </td>
+                                                                                <td style="padding-right: 5px">
+                                                                                    <a href="#">
+                                                                                        <img
+                                                                                            src="https://next.icm.com/assets/icons/facebook.svg"
+                                                                                            alt=""
+                                                                                        />
+                                                                                    </a>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <a href="#">
+                                                                                        <img
+                                                                                            src="https://next.icm.com/assets/icons/twitter.svg"
+                                                                                            alt=""
+                                                                                        />
+                                                                                    </a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                    <!-- <div
+                                                                        class="header-text-right"
+                                                                        style="font-size: 0; line-height: 18px"
+                                                                    >
+                                                                        
+                                                                        <a
+                                                                            href="#"
+                                                                            style="
+                                                                                border: solid 10px red;
+                                                                                display: inline-block;
+                                                                            "
+                                                                        >
+                                                                            <img
+                                                                                src="https://next.icm.com/assets/icons/youtube.svg"
+                                                                                alt=""
+                                                                            />
+                                                                        </a>
+                                                                        <a
+                                                                            href="#"
+                                                                            style="
+                                                                                border: solid 10px red;
+                                                                                display: inline-block;
+                                                                            "
+                                                                        >
+                                                                            <img
+                                                                                src="https://next.icm.com/assets/icons/instagram.svg"
+                                                                                alt=""
+                                                                            />
+                                                                        </a>
+                                                                        <a href="#">
+                                                                            <img
+                                                                                src="https://next.icm.com/assets/icons/facebook.svg"
+                                                                                alt=""
+                                                                            />
+                                                                        </a>
+                                                                        &nbsp;ddd
+                                                                        <a href="#">
+                                                                            <img
+                                                                                src="https://next.icm.com/assets/icons/twitter.svg"
+                                                                                alt=""
+                                                                            />
+                                                                        </a>
+                                                                    </div>                                                               -->
+                                                                </th>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
                                             <!-- END Header -->
                                             <!-- Pre Header -->
                                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
