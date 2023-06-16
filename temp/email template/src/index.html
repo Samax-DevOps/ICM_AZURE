@@ -51,8 +51,11 @@
                 -webkit-text-size-adjust: none;
             }
             a {
-                color: #4e54cb;
+                color: #074e7f;
                 text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
             }
             p {
                 padding: 0 !important;
@@ -60,6 +63,13 @@
             }
             img {
                 -ms-interpolation-mode: bicubic; /* Allow smoother rendering of resized image in Internet Explorer */
+            }
+            td.header-text-right div {
+                text-align: right;
+                padding-top: 1px;
+            }
+            .header-text-right div img {
+                margin-left: 2px;
             }
             .mcnPreviewText {
                 display: none !important;
@@ -78,7 +88,7 @@
             }
 
             /* Mobile styles */
-            @media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
+            @media only screen and (max-device-width: 575), only screen and (max-width: 575px) {
                 .mobile-shell {
                     width: 100% !important;
                     min-width: 100% !important;
@@ -265,7 +275,13 @@
                                                 bgcolor="#ffffff"
                                             >
                                                 <tr>
-                                                    <td style="padding: 20px; border-bottom: solid 1px red">
+                                                    <td
+                                                        style="
+                                                            padding: 20px;
+                                                            padding-bottom: 15px;
+                                                            border-bottom: solid 3px #074e7f;
+                                                        "
+                                                    >
                                                         <table
                                                             width="100%"
                                                             border="0"
@@ -299,7 +315,8 @@
                                                                         class="header-text-left"
                                                                         style="
                                                                             color: #85868d;
-                                                                            padding-top: 5px;
+                                                                            margin-top: 10px !important;
+                                                                            margin-left: 2px !important;
                                                                             font-family: 'Raleway', Arial, sans-serif;
                                                                             font-size: 16px;
                                                                             line-height: 18px;
@@ -307,53 +324,62 @@
                                                                     >
                                                                         Friday, 16 June 2032
                                                                     </div>
-                                                                    <!-- <table
-                                                                        width="100%"
-                                                                        border="0"
-                                                                        cellspacing="0"
-                                                                        cellpadding="0"
-                                                                    >
-                                                                        <tr>
-                                                                            <td
-                                                                                class="img m-center mpb10"
-                                                                                style="
-                                                                                    font-size: 0pt;
-                                                                                    line-height: 0pt;
-                                                                                    text-align: left;
-                                                                                "
-                                                                            >
-                                                                                <img
-                                                                                    class="logo"
-                                                                                    src="https://next.icm.com/assets/images/icm-logo.png"
-                                                                                    border="0"
-                                                                                    alt=""
-                                                                                />
-                                                                            </td>
-                                                                        </tr>
-                                                                    </table> -->
                                                                 </th>
                                                                 <td
-                                                                    class="column-dir header-text-right"
+                                                                    class="column-dir"
                                                                     dir="ltr"
                                                                     width="350"
                                                                     valign="top"
                                                                     style="
-                                                                        font-size: 13px;
-                                                                        line-height: 18px;
+                                                                        font-size: 14px;
+                                                                        line-height: 20px;
                                                                         padding: 0;
                                                                         margin: 0;
                                                                         font-family: 'Raleway', Arial, sans-serif;
                                                                         font-weight: normal;
                                                                         direction: ltr;
                                                                         color: #85868d;
-                                                                        background-color: aquamarine;
                                                                     "
                                                                 >
                                                                     <div
-                                                                        style="background-color: greenyellow"
                                                                         class="header-text-right"
+                                                                        style="margin-top: 2px"
                                                                     >
-                                                                        asfadf
+                                                                        <a href="#">+603 8604 4987</a>
+                                                                        <img
+                                                                            src="https://next.icm.com/assets/icons/telephone.svg"
+                                                                            alt=""
+                                                                        />
+                                                                    </div>
+                                                                    <div
+                                                                        class="header-text-right"
+                                                                        style="margin-top: 2px"
+                                                                    >
+                                                                        <a href="#">+44 7575 070707</a>
+                                                                        <img
+                                                                            src="https://next.icm.com/assets/icons/whatsapp.svg"
+                                                                            alt=""
+                                                                        />
+                                                                    </div>
+                                                                    <div
+                                                                        class="header-text-right"
+                                                                        style="margin-top: 2px"
+                                                                    >
+                                                                        <a href="#">support@icmcapital.co.uk</a>
+                                                                        <img
+                                                                            src="https://next.icm.com/assets/icons/envelope.svg"
+                                                                            alt=""
+                                                                        />
+                                                                    </div>
+                                                                    <div
+                                                                        class="header-text-right"
+                                                                        style="margin-top: 2px"
+                                                                    >
+                                                                        <a href="#">www.icmcapital.co.uk</a>
+                                                                        <img
+                                                                            src="https://next.icm.com/assets/icons/globe2.svg"
+                                                                            alt=""
+                                                                        />
                                                                     </div>
                                                                 </td>
                                                             </tr>
