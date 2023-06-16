@@ -1,0 +1,1 @@
+"C:\Code\icm\ICM.WebSites\temp\email template\SendMessage\SendMessage\bin\Debug\net8.0\SendMessage.exe" "C:\Code\icm\ICM.WebSites\temp\email template\MarketNewsEmail.html"

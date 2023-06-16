@@ -23,7 +23,7 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
     private static partial Regex NotFoundRegex();
 
     private readonly ITradingCentralClient _tradingCentralClient;
-    private readonly ILogger _logger;
+    private readonly ILogger<GetMarketNewsQueryHandler> _logger;
 
     public GetMarketNewsQueryHandler(ITradingCentralClient tradingCentralClient, ILogger<GetMarketNewsQueryHandler> logger)
     {
