@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICM.WebSites.Application", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICM.WebSites.Infrastructure", "src\ICM.WebSites.Infrastructure\ICM.WebSites.Infrastructure.csproj", "{1EF277BB-A734-42AC-B133-8462F13E284F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICM.WebSites.Umbraco", "src\ICM.WebSites.Umbraco\ICM.WebSites.Umbraco.csproj", "{428E003F-BE9B-4EB2-A480-D60AA7825CEA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICM.WebSite.Cms", "src\ICM.WebSite.Cms\ICM.WebSite.Cms.csproj", "{428E003F-BE9B-4EB2-A480-D60AA7825CEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

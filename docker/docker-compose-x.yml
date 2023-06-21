@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+    icm-web-{X}:
+        image: proget.icm.com/docker/icm-website:latest
+        container_name: next-icm-com-{X}
+        restart: always
+        ports:
+            - "500{X}:8080"
+        # environment:
+        # volumes:
+            # - /etc/nginx/content/:/usr/share/nginx/
+            # - /etc/nginx/config/:/etc/nginx/
+            # - /etc/nginx/ssl/:/etc/letsencrypt/live/
+            # - /etc/nginx/geoip/:/usr/share/GeoIP/
+        networks:
+            - next-icm-net-{X}
+networks:
+    next-icm-net-{X}:
