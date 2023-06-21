@@ -13,7 +13,7 @@
 
     <ItemGroup>
       <PackageReference Include="ErrorOr" Version="1.2.1" />
-      <PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
+      <PackageReference Include="HtmlAgilityPack" Version="1.11.48" />
       <PackageReference Include="Mediator.Abstractions" Version="2.2.0-preview.5" />
       <PackageReference Include="Mediator.SourceGenerator" Version="2.2.0-preview.5">
         <PrivateAssets>all</PrivateAssets>
