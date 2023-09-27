@@ -19,6 +19,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICM.WebSites.Infrastructure
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICM.WebSite.Cms", "src\ICM.WebSite.Cms\ICM.WebSite.Cms.csproj", "{428E003F-BE9B-4EB2-A480-D60AA7825CEA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{C6E65BA3-F5C9-4F6E-A39D-EC74316B1253}"
+	ProjectSection(SolutionItems) = preProject
+		docker\.dockerignore = docker\.dockerignore
+		docker\docker-compose-x.yml = docker\docker-compose-x.yml
+		docker\Dockerfile = docker\Dockerfile
+		docker\build.ps1 = docker\build.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
