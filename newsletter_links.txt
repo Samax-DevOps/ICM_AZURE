@@ -1,12 +1,7 @@
-
 "icmcapital.co.uk, morning, english, arabic",
 https://newsletters.tradingcentral.com/icmcapital/index_en_morning_20230515.html
 
 "icmcapital.co.uk, evening, english, arabic",
-
-
-
-
 
 
 "icmcapital.com, morning, english, arabic, malay",
