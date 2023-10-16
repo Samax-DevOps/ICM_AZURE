@@ -20,9 +20,9 @@ https://newsletters.tradingcentral.com/icmcapital/index_en_morning_20230515.html
 https://newsletters.tradingcentral.com/icmcapital/
 
 if (language == "ms")
-            {
-                url = url.Replace("_morning_", "_");
-            }
+{
+    url = url.Replace("_morning_", "_");
+}
 
 index_{language}_{part}_{date}{(string.IsNullOrEmpty(suffix) ? "" : $"_{suffix}")}.html"
 
