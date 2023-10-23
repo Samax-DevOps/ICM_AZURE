@@ -35,7 +35,7 @@
         <Exec Command="pnpm --version" ContinueOnError="true">
             <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
         </Exec>
-        <Error Condition="'$(ErrorCode)' != '0'" Text="pnpm is required to build and run this project. To continue, please install pnpm from https://pnpm.io/installation, and then restart your command prompt or IDE." />
+        <Error Condition="'$(ErrorCode)' != '0'" Text="pnpm is equired to build and run this project. To continue, please install pnpm from https://pnpm.io/installation, and then restart your command prompt or IDE." />
         <Message Importance="high" Text="Restoring dependencies using 'pnpm'. This may take several minutes..." />
         <Exec WorkingDirectory="frontend" Command="pnpm install" />
     </Target>
