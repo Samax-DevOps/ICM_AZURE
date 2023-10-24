@@ -1,4 +1,4 @@
-namespace ICM.WebSites.Umbraco;
+namespace ICM.WebSites.Cms;
 
 public static class Program
 {

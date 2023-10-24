@@ -1,7 +1,7 @@
 using ICM.WebSites.Application;
 using ICM.WebSites.Infrastructure;
 
-namespace ICM.WebSites.Umbraco
+namespace ICM.WebSites.Cms
 {
     public class Startup
     {

@@ -1,6 +1,6 @@
 ﻿using Umbraco.Cms.Web.Common;
 
-namespace ICM.WebSites.Umbraco.Extensions;
+namespace ICM.WebSites.Cms.Extensions;
 
 public static class UmbracoHelperExtensions
 {
