@@ -1,11 +1,10 @@
 ### Prerequisites
 
 -   git latest version (<https://git-scm.com/downloads>)
--   dotnet core v8.0 or later (<https://dotnet.microsoft.com/en-us/download>)
--   pnpm v8.0 or later(<https://pnpm.io/installation>)
--   nvm v0.39.0 or later (https://github.com/nvm-sh/nvm)
--   certbot v1.18.0 or later (<https://certbot.eff.org/instructions>)
--
+-   dotnet core 8.0 or later (<https://dotnet.microsoft.com/en-us/download>)
+-   nvm 1.1.11 (https://github.com/nvm-sh/nvm or install using winget)
+-   nodejs 20.8.1 (should be installed using nvm)
+-   pnpm v8.6.2 (<https://pnpm.io/installation> or install using npm)
 
 ### Links
 
