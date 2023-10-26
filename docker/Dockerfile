@@ -1,19 +1,34 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0-preview-alpine AS base
-WORKDIR /app
-EXPOSE 8080
-
-FROM mcr.microsoft.com/dotnet/sdk:8.0-preview-alpine AS build
+﻿# Learn about building .NET container images:
+# https://github.com/dotnet/dotnet-docker/blob/main/samples/README.md
+FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
+ARG TARGETARCH
 WORKDIR /src
-COPY ["ICM.WebSites.Cms/ICM.WebSites.Cms.csproj", "ICM.WebSites.Cms/"]
-RUN dotnet restore "ICM.WebSites.Cms/ICM.WebSites.Cms.csproj"
-COPY . .
-WORKDIR "/src/ICM.WebSites.Cms"
-RUN dotnet build "ICM.WebSites.Cms.csproj" -c Release -o /app/build
 
-FROM build AS publish
-RUN dotnet publish "ICM.WebSites.Cms.csproj" -c Release -o /app/publish /p:UseAppHost=false
+# copy csproj files
+COPY ICM.WebSites.Application/*.csproj ICM.WebSites.Application/
+COPY ICM.WebSites.Cms/*.csproj ICM.WebSites.Cms/
+COPY ICM.WebSites.Domain/*.csproj ICM.WebSites.Domain/
+COPY ICM.WebSites.Infrastructure/*.csproj ICM.WebSites.Infrastructure/
 
-FROM base AS final
+# restore as distinct layers
+RUN dotnet restore ICM.WebSites.Cms/ICM.WebSites.Cms.csproj -a $TARGETARCH
+
+# install pnpm
+RUN apk add --update nodejs npm
+RUN npm install -g pnpm
+
+# copy and publish app and libraries
+COPY ICM.WebSites.Application/ ICM.WebSites.Application/
+COPY ICM.WebSites.Cms/ ICM.WebSites.Cms/
+COPY ICM.WebSites.Domain/ ICM.WebSites.Domain/
+COPY ICM.WebSites.Infrastructure/ ICM.WebSites.Infrastructure/
+RUN dotnet publish ICM.WebSites.Cms/ICM.WebSites.Cms.csproj -a $TARGETARCH --no-restore -o /app
+
+# Enable globalization and time zones:
+# https://github.com/dotnet/dotnet-docker/blob/main/samples/enable-globalization.md
+# final stage/image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine
 WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ICM.WebSites.Cms.dll"]
+COPY --from=build /app .
+USER $APP_UID
+ENTRYPOINT ["./ICM.WebSites.Cms"]
