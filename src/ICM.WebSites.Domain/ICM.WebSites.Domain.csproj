@@ -7,8 +7,4 @@
         <LangVersion>default</LangVersion>
     </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
-    </ItemGroup>
-
 </Project>

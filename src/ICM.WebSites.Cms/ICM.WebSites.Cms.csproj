@@ -23,6 +23,12 @@
     </ItemGroup>
 
     <ItemGroup>
+        <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
+        <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+        <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+    </ItemGroup>
+    
+    <ItemGroup>
         <!-- TODO: Check if this is still needed -->
         <!-- https://learn.microsoft.com/en-us/dotnet/core/tools/sdk-errors/netsdk1206 -->
         <RuntimeHostConfigurationOption Include="System.Runtime.Loader.UseRidGraph" Value="true" />
@@ -75,12 +81,6 @@
         <ProjectReference Include="..\ICM.WebSites.Application\ICM.WebSites.Application.csproj" />
         <ProjectReference Include="..\ICM.WebSites.Domain\ICM.WebSites.Domain.csproj" />
         <ProjectReference Include="..\ICM.WebSites.Infrastructure\ICM.WebSites.Infrastructure.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
-        <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
-        <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="72.1.0.3" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
     </ItemGroup>
 
     <ItemGroup>
