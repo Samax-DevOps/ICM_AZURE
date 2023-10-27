@@ -37,9 +37,7 @@ RUN apk add --no-cache \
     icu-data-full \
     icu-libs
 
-RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
-
 WORKDIR /app
 COPY --from=build /app .
-RUN mkdir /app/umbraco
+#RUN mkdir /app/umbraco
 ENTRYPOINT ["./ICM.WebSites.Cms"]
