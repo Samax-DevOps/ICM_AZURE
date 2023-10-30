@@ -13,6 +13,8 @@ services:
         volumes:
             - /var/icm/umbraco/staging/media:/app/wwwroot/media/
             - /var/icm/umbraco/staging/uSync:/app/uSync/
+        extra_hosts:
+            - "mssql.uat.icmc.loc:10.10.144.36"
         networks:
             - icm-websites-staging
 networks:
