@@ -17,26 +17,20 @@ public record GetMarketNewsQuery : IRequest<ErrorOr<MarketNewsVm>>
     public required string TcMarker { get; set; }
 }
 
-public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQuery, ErrorOr<MarketNewsVm>>
+public partial class GetMarketNewsQueryHandler(
+    ITradingCentralClient tradingCentralClient,
+    ILogger<GetMarketNewsQueryHandler> logger)
+    : IRequestHandler<GetMarketNewsQuery, ErrorOr<MarketNewsVm>>
 {
     [GeneratedRegex("not found")]
     private static partial Regex NotFoundRegex();
-
-    private readonly ITradingCentralClient _tradingCentralClient;
-    private readonly ILogger<GetMarketNewsQueryHandler> _logger;
-
-    public GetMarketNewsQueryHandler(ITradingCentralClient tradingCentralClient, ILogger<GetMarketNewsQueryHandler> logger)
-    {
-        _tradingCentralClient = tradingCentralClient;
-        _logger = logger;
-    }
 
     public async ValueTask<ErrorOr<MarketNewsVm>> Handle(GetMarketNewsQuery request, CancellationToken cancellationToken)
     {
         var culture = new CultureInfo(request.Culture).TwoLetterISOLanguageName;
         
         // load html from Trading Central
-        var html = await _tradingCentralClient.GetAsync(request.Date, culture, request.DayPart);
+        var html = await tradingCentralClient.GetAsync(request.Date, culture, request.DayPart);
 
         if (NotFoundRegex().IsMatch(html))
         {
@@ -61,7 +55,7 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
         catch (Exception e)
         {
             // ReSharper disable once TemplateIsNotCompileTimeConstantProblem
-            _logger.LogError(e, Errors.TradingCentral.ParseError.Description);
+            logger.LogError(e, Errors.TradingCentral.ParseError.Description);
             return Errors.TradingCentral.ParseError;
         }
     }
