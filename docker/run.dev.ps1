@@ -5,4 +5,4 @@ docker --context dev rmi $(docker images -f “dangling=true” -q)
 
 
 # login into container
-# docker --context dev exec -it icm/websites sh
+# docker --context dev exec -it icm-websites-staging sh
