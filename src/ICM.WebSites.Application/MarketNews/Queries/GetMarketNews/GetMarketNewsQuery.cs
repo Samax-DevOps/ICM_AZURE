@@ -19,7 +19,7 @@ public record GetMarketNewsQuery : IRequest<ErrorOr<MarketNewsVm>>
 
 public partial class GetMarketNewsQueryHandler(
     ITradingCentralClient tradingCentralClient,
-    ILogger<GetMarketNewsQueryHandler> logger)
+    ILogger<GetMarketNewsQueryHandler> logger) 
     : IRequestHandler<GetMarketNewsQuery, ErrorOr<MarketNewsVm>>
 {
     [GeneratedRegex("not found")]
