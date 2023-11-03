@@ -70,8 +70,9 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
     {
         // get main content
         var contentNode = htmlDoc.DocumentNode
-            .SelectSingleNode("//comment()[contains(., 'Market Comment')]/following-sibling::table");
-
+            .SelectSingleNode("//td[@class='content']")
+            .SelectNodes("table")[5];
+        
         // remove bottom border
         contentNode
             .Descendants("td")
@@ -108,7 +109,8 @@ public partial class GetMarketNewsQueryHandler : IRequestHandler<GetMarketNewsQu
     {
         // get navigation
         var node = htmlDoc.DocumentNode
-            .SelectSingleNode("//comment()[contains(., 'navigation start')]/following-sibling::table");
+            .SelectSingleNode("//td[@class='content']")
+            .SelectNodes("table")[4];
 
         return node.OuterHtml;
     }
