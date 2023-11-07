@@ -29,14 +29,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="bin\Debug\net8.0\ICM.WebSites.Application.deps.json" />
-      <Content Include="bin\Debug\net8.0\ICM.WebSites.Application.dll" />
-      <Content Include="bin\Debug\net8.0\ICM.WebSites.Application.pdb" />
-      <Content Include="bin\Debug\net8.0\ICM.WebSites.Domain.dll" />
-      <Content Include="bin\Debug\net8.0\ICM.WebSites.Domain.pdb" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Compile Remove="bin\**" />
     </ItemGroup>
 
