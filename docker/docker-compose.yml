@@ -18,3 +18,4 @@ services:
             - icm-websites-staging
 networks:
     icm-websites-staging:
+ё
