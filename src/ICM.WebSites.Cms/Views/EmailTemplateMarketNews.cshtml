@@ -32,7 +32,10 @@
         }
 
         marketNewsModel = result.Value;
+        marketNewsModel.ContentHtml = marketNewsModel.ContentHtml.Replace(
+            "https://www.icmcapital.co.uk/clientarea/signin.php", websiteSettings.RegistrationLink);
     }
+    
     var emailSubject = marketNewsQuery?.MarketSession == MarketSession.Evening
         ? Model.EveningEmailSubject
         : Model.MorningEmailSubject;

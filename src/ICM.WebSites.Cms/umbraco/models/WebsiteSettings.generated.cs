@@ -56,5 +56,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("mainLogo")]
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops MainLogo => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "mainLogo");
+
+		///<summary>
+		/// Registration Link: Enter registration link
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.3.1+80fac86")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("registrationLink")]
+		public virtual string RegistrationLink => this.Value<string>(_publishedValueFallback, "registrationLink");
 	}
 }
