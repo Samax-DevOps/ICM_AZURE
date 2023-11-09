@@ -11,8 +11,9 @@ services:
         environment:
             - ASPNETCORE_ENVIRONMENT=Staging
         volumes:
-            - /var/icm/umbraco/staging/media:/app/wwwroot/media/
-            - /var/icm/umbraco/staging/uSync:/app/uSync/
+            - /var/icm/umbraco/staging/media:/app/wwwroot/media
+            - /var/icm/umbraco/staging/uSync:/app/uSync
+            - /etc/icm/websites/keys:/etc/icm/websites/keys
         networks:
             - icm-websites-staging
 networks:

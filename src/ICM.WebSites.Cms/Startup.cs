@@ -1,5 +1,6 @@
 using ICM.WebSites.Application;
 using ICM.WebSites.Infrastructure;
+using Microsoft.AspNetCore.DataProtection;
 
 namespace ICM.WebSites.Cms
 {
@@ -32,6 +33,11 @@ namespace ICM.WebSites.Cms
         /// </remarks>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDataProtection()
+                .SetApplicationName("ICM.WebSites.Cms")
+                .PersistKeysToFileSystem(Directory.CreateDirectory("/etc/icm/websites/keys"));
+                
+                
             services.AddUmbraco(_env, _config)
                 .AddBackOffice()
                 .AddWebsite()
