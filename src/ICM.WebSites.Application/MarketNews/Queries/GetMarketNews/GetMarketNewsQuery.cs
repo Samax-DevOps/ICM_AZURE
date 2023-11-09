@@ -12,7 +12,7 @@ namespace ICM.WebSites.Application.MarketNews.Queries.GetMarketNews;
 public record GetMarketNewsQuery : IRequest<ErrorOr<MarketNewsVm>>
 {
     public required DateOnly Date { get; init; }
-    public required DayParts DayPart { get; init; }
+    public required MarketSession MarketSession { get; init; }
     public required string Culture { get; init; }
     public required string TcMarker { get; set; }
 }
@@ -30,7 +30,7 @@ public partial class GetMarketNewsQueryHandler(
         var culture = new CultureInfo(request.Culture).TwoLetterISOLanguageName;
         
         // load html from Trading Central
-        var html = await tradingCentralClient.GetAsync(request.Date, culture, request.DayPart);
+        var html = await tradingCentralClient.GetAsync(request.Date, culture, request.MarketSession);
 
         if (NotFoundRegex().IsMatch(html))
         {

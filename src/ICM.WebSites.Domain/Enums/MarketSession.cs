@@ -1,6 +1,6 @@
 ﻿namespace ICM.WebSites.Domain.Enums;
 
-public enum DayParts
+public enum MarketSession
 {
     Morning,
     Evening

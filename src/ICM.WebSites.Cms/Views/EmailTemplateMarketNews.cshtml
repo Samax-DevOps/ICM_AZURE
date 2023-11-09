@@ -3,6 +3,7 @@
 @using ICM.WebSites.Domain.Enums
 @using System.Globalization
 @using ICM.WebSites.Cms.Extensions
+@using uSync.Core
 @inherits UmbracoViewPage<MarketNewsEmail>
 @{
     Layout = "EmailTemplate.cshtml";
@@ -32,7 +33,7 @@
 
         marketNewsModel = result.Value;
     }
-    var emailSubject = marketNewsQuery?.DayPart == DayParts.Evening
+    var emailSubject = marketNewsQuery?.MarketSession == MarketSession.Evening
         ? Model.EveningEmailSubject
         : Model.MorningEmailSubject;
     var dir = new CultureInfo(Model.GetCultureFromDomains() ?? "en").TextInfo.IsRightToLeft ? "rtl" : "ltr";
@@ -44,13 +45,13 @@
     {
         var query = context.Request.Query;
 
-        return query["date"].Count == 0 || query["day-part"].Count == 0
+        return query["date"].Count == 0 || query["session"].Count == 0
             ? null
             : new GetMarketNewsQuery
             {
                 Culture = Model.GetCultureFromDomains() ?? "en",
                 Date = DateOnly.ParseExact(query["date"]!, "yyyyMMdd"),
-                DayPart = Enum.Parse<DayParts>(query["day-part"]!, true),
+                MarketSession = Enum.Parse<MarketSession>(query["session"]!, true),
                 TcMarker = Model.TcMarker!
             };
     }
@@ -135,7 +136,7 @@
                             <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:collapse;border-spacing:0">
                                 <tr>
                                     <td align="right" style="padding:0;Margin:0">
-                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:20px;color:#646464;font-size:13px">@(marketNewsQuery?.Date.ToString("D") ?? "Date Placeholder")&nbsp;|&nbsp;<a href="mailto:@Model.SenderEmail" target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#646464;font-size:13px">@Model.SenderEmail</a></p>
+                                        <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:20px;color:#646464;font-size:13px">@(marketNewsQuery?.Date.ToString("D") ?? "[Date Placeholder]")&nbsp;|&nbsp;<a href="mailto:@Model.SenderEmail" target="_blank" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#646464;font-size:13px">@Model.SenderEmail</a></p>
                                     </td>
                                 </tr>
                             </table>
@@ -218,7 +219,7 @@
                     <td valign="top" align="center" style="padding:0;Margin:0;width:660px">
                         @if (marketNewsModel == null)
                         {
-                            <p style="margin: 100px 20px">Content placeholder</p>
+                            <p style="margin: 100px 20px">[Content placeholder]</p>
                         }
                         else
                         {
@@ -317,25 +318,28 @@
                                     <td align="center" style="padding:25px 5px;Margin:0">
                                         <table border="0" cellpadding="0" cellspacing="0" style="font-family:Verdana, Arial, Helvetica, sans-serif;text-align:justify;" width="100%">
                                             <tbody>
-                                            <tr>
-                                                <td style="font-size:11px; color:#8d8f90;" dir="@dir">
-                                                    <table border="0" cellspacing="0" cellpadding="0" style="font-size:11px; color:#8d8f90;">
-                                                        <tbody>
-                                                        @foreach (var entity in entities)
-                                                        {
-                                                            <tr>
-                                                                <td height="35" width="35" align="middle" valign="top">
-                                                                    <img src="@entity.Icon?.Url(mode: UrlMode.Absolute)" alt="" width="24">
-                                                                </td>
-                                                                <td valign="top" style="padding-bottom: 10px">
-                                                                    @Html.Raw(entity.RegulationInfo)
-                                                                </td>
-                                                            </tr>
-                                                        }
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
+                                            @if (Model.ShowEntityList) 
+                                            {
+                                                <tr>
+                                                    <td style="font-size:11px; color:#8d8f90;" dir="@dir">
+                                                        <table border="0" cellspacing="0" cellpadding="0" style="font-size:11px; color:#8d8f90;">
+                                                            <tbody>
+                                                            @foreach (var entity in entities)
+                                                            {
+                                                                <tr>
+                                                                    <td height="35" width="35" align="center" valign="top">
+                                                                        <img src="@entity.Icon?.Url(mode: UrlMode.Absolute)" alt="" width="24">
+                                                                    </td>
+                                                                    <td valign="top" style="padding-bottom: 10px">
+                                                                        @Html.Raw(entity.RegulationInfo)
+                                                                    </td>
+                                                                </tr>
+                                                            }
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            }
                                             @if (Model.RegulationUrl != null)
                                             {
                                                 <tr>
@@ -394,7 +398,7 @@
                                 <tr>
                                     <td align="center" style="padding: 0 15px 25px;Margin:0">
                                         <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
-                                            @Html.Raw(marketNewsModel?.TermsAndConditionsHtml ?? "Terms and conditions placeholder")
+                                            @Html.Raw(marketNewsModel?.TermsAndConditionsHtml ?? "[Terms and conditions placeholder]")
                                         </p>
                                     </td>
                                 </tr>

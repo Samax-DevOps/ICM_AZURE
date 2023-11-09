@@ -15,9 +15,9 @@ public class TradingCentralClient : ITradingCentralClient
         _logger = logger;
     }
 
-    public async Task<string> GetAsync(DateOnly date, string culture, DayParts dayPart)
+    public async Task<string> GetAsync(DateOnly date, string culture, MarketSession marketSession)
     {
-        var url = $"index_{culture}_{(culture == "ms" ? string.Empty : $"{dayPart}_")}{date.ToString("yyyyMMdd")}.html";
+        var url = $"index_{culture}_{(culture == "ms" ? string.Empty : $"{marketSession}_")}{date.ToString("yyyyMMdd")}.html";
 
         _logger.LogInformation("Getting Trading Central content from '{Url}'", $"{_httpClient.BaseAddress}{url}");
         var response = await _httpClient.GetAsync(url);

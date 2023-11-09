@@ -4,5 +4,5 @@ namespace ICM.WebSites.Application.Common.Interfaces;
 
 public interface ITradingCentralClient
 {
-    Task<string> GetAsync(DateOnly date, string culture, DayParts dayPart);
+    Task<string> GetAsync(DateOnly date, string culture, MarketSession marketSession);
 }
