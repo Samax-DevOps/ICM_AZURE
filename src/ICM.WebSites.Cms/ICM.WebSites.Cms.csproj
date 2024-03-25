@@ -19,7 +19,7 @@
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" />
         <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0" />
         <PackageReference Include="Umbraco.Cms" Version="13.1.1" />
-        <PackageReference Include="uSync" Version="13.0.0" />
+        <PackageReference Include="uSync" Version="13.1.0" />
     </ItemGroup>
 
     <ItemGroup>

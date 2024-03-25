@@ -12,8 +12,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="ErrorOr" Version="1.5.0" />
-      <PackageReference Include="HtmlAgilityPack" Version="1.11.57" />
+      <PackageReference Include="ErrorOr" Version="1.10.0" />
+      <PackageReference Include="HtmlAgilityPack" Version="1.11.59" />
       <PackageReference Include="Mediator.Abstractions" Version="3.0.0-preview.11" />
       <PackageReference Include="Mediator.SourceGenerator" Version="3.0.0-preview.11">
         <PrivateAssets>all</PrivateAssets>
