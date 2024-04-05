@@ -12,14 +12,14 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="ErrorOr" Version="1.10.0" />
-      <PackageReference Include="HtmlAgilityPack" Version="1.11.59" />
+      <PackageReference Include="ErrorOr" Version="2.0.1" />
+      <PackageReference Include="HtmlAgilityPack" Version="1.11.60" />
       <PackageReference Include="Mediator.Abstractions" Version="3.0.0-preview.11" />
       <PackageReference Include="Mediator.SourceGenerator" Version="3.0.0-preview.11">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
     </ItemGroup>
 
     <ItemGroup>

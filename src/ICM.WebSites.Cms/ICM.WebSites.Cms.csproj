@@ -16,10 +16,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" />
         <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0" />
-        <PackageReference Include="Umbraco.Cms" Version="13.1.1" />
-        <PackageReference Include="uSync" Version="13.1.0" />
+        <PackageReference Include="Umbraco.Cms" Version="13.2.2" />
+        <PackageReference Include="uSync" Version="13.1.3" />
     </ItemGroup>
 
     <ItemGroup>
@@ -37,12 +37,57 @@
     <ItemGroup>
         <!-- Don't publish the SPA source files, but do show them in the project files list -->
         <Content Remove="$(SpaRoot)**" />
+        <Content Include="wwwroot\media\0iopfv2t\r-flag-se.png" />
+        <Content Include="wwwroot\media\1iefewfj\r-flag-uk.png" />
+        <Content Include="wwwroot\media\24joaqc5\icm-cashier-banner.jpg" />
+        <Content Include="wwwroot\media\4vojddil\phone.png" />
+        <Content Include="wwwroot\media\5arg1nqh\r-flag-se.png" />
+        <Content Include="wwwroot\media\a0bhkw3a\icm-cashier-banner.jpg" />
+        <Content Include="wwwroot\media\aihcenvc\r-flag-my.png" />
+        <Content Include="wwwroot\media\bakdyycy\globe.png" />
+        <Content Include="wwwroot\media\bhvl5gls\r-flag-uk.png" />
+        <Content Include="wwwroot\media\bzbd3va5\r-flag-ch.png" />
+        <Content Include="wwwroot\media\cfvnwhj2\r-flag-my.png" />
+        <Content Include="wwwroot\media\dj0hms04\r-flag-mu.png" />
+        <Content Include="wwwroot\media\dj0ibzai\icmmena-logo.png" />
+        <Content Include="wwwroot\media\enrfd0ww\envelope.png" />
+        <Content Include="wwwroot\media\ez0b0qhy\social-in.png" />
+        <Content Include="wwwroot\media\f05bsmxf\r-flag-ae.png" />
+        <Content Include="wwwroot\media\f54hympk\icm-default-logo.png" />
+        <Content Include="wwwroot\media\fcua4jlf\marketnewsfooteren.jpg" />
+        <Content Include="wwwroot\media\gsumwxjg\envelope.png" />
+        <Content Include="wwwroot\media\hbtnjbvv\icm-trader-logo.svg" />
+        <Content Include="wwwroot\media\i4mmy1au\r-flag-ae.png" />
+        <Content Include="wwwroot\media\iepejpwq\sail-gp-team-logo.png" />
+        <Content Include="wwwroot\media\kgkjonfm\r-flag-vc.png" />
+        <Content Include="wwwroot\media\lbgf3ejf\market-update-banner.jpg" />
+        <Content Include="wwwroot\media\lsxao1bs\test.png" />
+        <Content Include="wwwroot\media\lwep1he1\social-tw.png" />
+        <Content Include="wwwroot\media\md0acvel\social-fb.png" />
+        <Content Include="wwwroot\media\mixhi20v\social-yt.png" />
+        <Content Include="wwwroot\media\mvgjxyyx\r-flag-mu.png" />
+        <Content Include="wwwroot\media\my4junrl\globe.png" />
+        <Content Include="wwwroot\media\pwnbqt1u\r-flag-qa.png" />
+        <Content Include="wwwroot\media\qibgpc4k\sailing-world-banner.jpg" />
+        <Content Include="wwwroot\media\qppp4dwu\telephone-fill.svg" />
+        <Content Include="wwwroot\media\rhsjssas\globe2.svg" />
+        <Content Include="wwwroot\media\shwbycii\chestertons-polo-logo.png" />
+        <Content Include="wwwroot\media\srajpf5t\marketnewsfooterar.jpg" />
+        <Content Include="wwwroot\media\tjknkieq\envelope-fill.svg" />
+        <Content Include="wwwroot\media\tkpddqzh\social-ig.png" />
+        <Content Include="wwwroot\media\vr2fag21\r-flag-qa.png" />
+        <Content Include="wwwroot\media\wztluovh\r-flag-vc.png" />
+        <Content Include="wwwroot\media\xfja4dkh\r-flag-ch.png" />
+        <Content Include="wwwroot\media\xihbhayn\sailing-world-banner.jpg" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
         <Content Remove="obj\**" />
         <None Remove="obj\**" />
         <Content Remove="frontend\dist\**" />
         <None Remove="frontend\dist\**" />
+        <Content Update="Views\ICMSolutionsPageTemplate.cshtml">
+          <DependentUpon>WebPageTemplate.cshtml</DependentUpon>
+        </Content>
     </ItemGroup>
 
     <Target Name="DebugEnsurePnpm" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('frontend\node_modules') ">
@@ -92,15 +137,19 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Remove="wwwroot\media\**" />
         <Compile Remove="obj\**" />
         <Compile Remove="frontend\dist\**" />
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Remove="wwwroot\media\**" />
         <EmbeddedResource Remove="obj\**" />
         <EmbeddedResource Remove="frontend\dist\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\assets\icmsolutions\css\" />
+      <Folder Include="wwwroot\assets\icmsolutions\images\" />
+      <Folder Include="wwwroot\assets\icmsolutions\js\" />
     </ItemGroup>
 
     <PropertyGroup>
