@@ -1231,6 +1231,8 @@
   /*------------------------------------------*/
   /*  BASE
   /*------------------------------------------*/
+.syslog img {  width: 35%;
+    padding: 15px; }
 
   html { font-size: 85%; } 
 
@@ -2757,6 +2759,8 @@
   /*  BASE
   /*------------------------------------------*/
 
+.syslog img {  width: 50%;
+    padding: 15px; }
   .block-shadow { 
     -webkit-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .08); 
     -moz-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .08); 
@@ -4520,6 +4524,8 @@
   /*------------------------------------------*/
   /*  BASE
   /*------------------------------------------*/
+  .syslog img {  width: 50%;
+    padding: 15px; }
 
   #stlChanger { display: none; }
   .division { padding-left: 10px; padding-right: 10px; }
