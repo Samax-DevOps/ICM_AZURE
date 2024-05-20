@@ -19,6 +19,8 @@ public class EmailController(IWebHostEnvironment hostEnvironment, IConfiguration
 
         emailMessage.From.Add(new MailboxAddress("www.icmsolutions.gr", emailSettings["www.icmsolutions.gr"]));
         emailMessage.To.Add(new MailboxAddress("www.icmsolutions.gr", emailSettings["www.icmsolutions.gr"]));
+        emailMessage.To.Add(new MailboxAddress("Vitaly Mikheesku", "vitaly.mikheesku@icm.com"));
+        emailMessage.To.Add(new MailboxAddress("Shami Muthanna", "shami.muthanna@icm.com"));
         emailMessage.Subject = "Contact request from the www.icmsolutions.gr website";
 
         var templatePath = Path.Combine(hostEnvironment.ContentRootPath, "wwwroot/assets/icmsolutions/templates/contact-us.html");
