@@ -13,7 +13,6 @@ services:
         volumes:
             - /var/icm/umbraco/staging/media:/app/wwwroot/media
             - /var/icm/umbraco/staging/uSync:/app/uSync
-            - /var/icm/umbraco/staging/app:/app
             - /etc/icm/websites/keys:/etc/icm/websites/keys
         networks:
             - icm-websites-staging
