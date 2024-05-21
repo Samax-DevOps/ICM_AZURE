@@ -17,7 +17,7 @@ public class EmailController(IWebHostEnvironment hostEnvironment, IConfiguration
         
         var emailMessage = new MimeMessage();
 
-        emailMessage.From.Add(new MailboxAddress("www.icmsolutions.gr", emailSettings["www.icmsolutions.gr"]));
+        emailMessage.From.Add(new MailboxAddress("ICM Websites", "web@icm.com"));
         emailMessage.To.Add(new MailboxAddress("www.icmsolutions.gr", emailSettings["www.icmsolutions.gr"]));
         emailMessage.To.Add(new MailboxAddress("Vitaly Mikheesku", "vitaly.mikheesku@icm.com"));
         emailMessage.To.Add(new MailboxAddress("Shami Muthanna", "shami.muthanna@icm.com"));
