@@ -42,8 +42,11 @@ RUN apk add --no-cache \
 
 WORKDIR /app
 COPY --from=build /app .
-#RUN mkdir /app/umbraco
-#RUN echo 'MinProtocol = TLSv1' >> /etc/ssl/openssl.cnf
-#RUN echo 'CipherString = DEFAULT@SECLEVEL=0' >> /etc/ssl/openssl.cnf
+
+RUN sed -i 's/\[openssl_init\]/# [openssl_init]/' /etc/ssl/openssl.cnf
+RUN printf "\n\n[openssl_init]\nssl_conf = ssl_sect" >> /etc/ssl/openssl.cnf
+RUN printf "\n\n[ssl_sect]\nsystem_default = ssl_default_sect" >> /etc/ssl/openssl.cnf
+RUN printf "\n\n[ssl_default_sect]\nMinProtocol = TLSv1\nCipherString = DEFAULT@SECLEVEL=0\n" >> /etc/ssl/openssl.cnf
+
 
 ENTRYPOINT ["./ICM.WebSites.Cms"]

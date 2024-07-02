@@ -21,7 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{C6E65B
 	ProjectSection(SolutionItems) = preProject
 		docker\Dockerfile = docker\Dockerfile
 		docker\docker-compose.yml = docker\docker-compose.yml
-		docker\docker-compose-x.yml = docker\docker-compose-x.yml
 		docker\run.local.ps1 = docker\run.local.ps1
 		docker\run.staging.ps1 = docker\run.staging.ps1
 		docker\run.az-tools-srv-api02.ps1 = docker\run.az-tools-srv-api02.ps1
