@@ -1,9 +1,12 @@
+using System.Net;
+
 namespace ICM.WebSites.Cms;
 
 public static class Program
 {
     public static void Main(string[] args)
     {
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         CreateHostBuilder(args)
             .Build()
             .Run();
