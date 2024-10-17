@@ -2410,7 +2410,7 @@ p.video-txt-sm {
   border-color: transparent rgba(255, 186, 1, .15); 
 }
 
-@keyframes rotation {
+@@keyframes rotation {
   0% {
     transform: rotate(0deg);
   }

@@ -3,3 +3,69 @@
 @{
 	Layout = null;
 }
+<!DOCTYPE html>
+<html lang="@Model.Properties">
+
+<head>
+	@* @Helpers.RenderMetaInformation(Model.Id)
+	<script>
+		window.refferalCookieName = '@CommonAppSettings.InitialRefIDCookieName';
+		window.cookieDomain = '@UmbracoHelpers.GetCookieDomain()';
+	</script>
+
+	@RenderSection("styles", required: false)
+	@Helpers.RenderStyleLinks(Model.Content)
+	@Helpers.RenderStyleCode(Model.Content)
+	
+	<link href="/static/styles/styles.css?v=@Helpers.RenderAssemblyVersion()" rel="stylesheet" /> *@
+</head>
+
+<body>
+<div id="container">
+	@* @Html.Partial("LandingPages/Header")
+	@RenderBody()
+	@Html.Partial("LandingPages/Footer") *@
+
+</div>
+<div id="footer" style="display:none"></div>
+	<!-- Page Scripts -->
+
+	@* @Scripts.Render("~/uscripts/2015/jquery.min.js") 
+	@Scripts.Render("~/bundles/landing/js?d")
+	<script>
+	Cookies.remove('UmbracoUICulture');
+	Cookies.set('UmbracoUICulture', '@Model.Content.GetContentLanguageAlias()', { expires: 365 * 3 });
+	</script>
+
+	@RenderSection("scripts", required : false)
+	@Helpers.RenderJavaScriptLinks(Model.Content)
+	@Helpers.RenderJavaScriptCode(Model.Content) *@
+
+<script>
+	var swiper = new Swiper('.swiper-container', {
+		pagination: '.swiper-pagination',
+		paginationClickable: true,
+		slidesPerView: 4,
+		breakpoints: {
+			768: {
+				slidesPerView: 3,
+				spaceBetween: 30
+			},
+			640: {
+				slidesPerView: 2,
+				spaceBetween: 20
+			},
+			480: {
+				slidesPerView: 1,
+				spaceBetween: 10
+
+
+
+
+			}
+		}
+	});
+</script>
+
+</body>
+</html>

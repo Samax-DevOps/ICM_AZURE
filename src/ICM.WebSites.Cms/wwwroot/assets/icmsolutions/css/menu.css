@@ -746,7 +746,7 @@
 
 /* ================== Mobile Menu Change Brake Point ================== */
 
-@media only screen and (max-width: 991px) {
+@@media only screen and (max-width: 991px) {
 
 /* ================== Mobile Base CSS ================== */
 
@@ -1390,8 +1390,8 @@ body.wsactive {
 /*End Media Query*/
 }
 
-/* Extra @Media Query*/
-@media only screen and (min-width: 992px) and (max-width:1162px) {
+/* Extra @@media Query*/
+@@media only screen and (min-width: 992px) and (max-width:1162px) {
 .desktoplogo {
   margin-left: 12px;
 }

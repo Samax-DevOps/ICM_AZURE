@@ -1,9 +1,7 @@
 {
-  "$schema": "https://json.schemastore.org/launchsettings.json",
   "profiles": {
     "ICM.WebSites": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "http://local.icm.com:5000/umbraco",
       "applicationUrl": "http://0.0.0.0:5000",

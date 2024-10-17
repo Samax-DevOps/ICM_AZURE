@@ -38,13 +38,13 @@ THE SOFTWARE.
   position: absolute;
   top: 0;
 }
-@media (min-width: 576px) {
+@@media (min-width: 576px) {
   .modal.fade.modal-top-left .modal-dialog {
     left: 1.75rem;
     margin: 1.75rem auto;
   }
 }
-@media (max-width: 767.98px) {
+@@media (max-width: 767.98px) {
   .modal.fade.modal-top-left .modal-dialog {
     width: calc(100% - (0.5rem*2));
   }
@@ -54,13 +54,13 @@ THE SOFTWARE.
   position: absolute;
   top: 0;
 }
-@media (min-width: 576px) {
+@@media (min-width: 576px) {
   .modal.fade.modal-top-right .modal-dialog {
     right: 1.75rem;
     margin: 1.75rem auto;
   }
 }
-@media (max-width: 767.98px) {
+@@media (max-width: 767.98px) {
   .modal.fade.modal-top-right .modal-dialog {
     width: calc(100% - (0.5rem*2));
   }
@@ -70,13 +70,13 @@ THE SOFTWARE.
   position: absolute;
   bottom: 0;
 }
-@media (min-width: 576px) {
+@@media (min-width: 576px) {
   .modal.fade.modal-bottom-right .modal-dialog {
     right: 1.75rem;
     margin: 1.75rem auto;
   }
 }
-@media (max-width: 767.98px) {
+@@media (max-width: 767.98px) {
   .modal.fade.modal-bottom-right .modal-dialog {
     width: calc(100% - (0.5rem*2));
   }
@@ -86,13 +86,13 @@ THE SOFTWARE.
   position: absolute;
   bottom: 0;
 }
-@media (min-width: 576px) {
+@@media (min-width: 576px) {
   .modal.fade.modal-bottom-left .modal-dialog {
     left: 1.75rem;
     margin: 1.75rem auto;
   }
 }
-@media (max-width: 767.98px) {
+@@media (max-width: 767.98px) {
   .modal.fade.modal-bottom-left .modal-dialog {
     width: calc(100% - (0.5rem*2));
   }
@@ -103,12 +103,12 @@ THE SOFTWARE.
   right: 0;
   left: 0;
 }
-@media (min-width: 576px) {
+@@media (min-width: 576px) {
   .modal.fade.modal-bottom-center .modal-dialog {
     margin: 1.75rem auto;
   }
 }
-@media (max-width: 767.98px) {
+@@media (max-width: 767.98px) {
   .modal.fade.modal-bottom-center .modal-dialog {
     width: calc(100% - (0.5rem*2));
   }
