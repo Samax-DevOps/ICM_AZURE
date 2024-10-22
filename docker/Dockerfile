@@ -26,7 +26,7 @@ COPY ICM.WebSites.Domain/ ICM.WebSites.Domain/
 COPY ICM.WebSites.Infrastructure/ ICM.WebSites.Infrastructure/
 RUN dotnet publish ICM.WebSites.Cms/ICM.WebSites.Cms.csproj -a $TARGETARCH --no-restore --configuration Release -o /app
 
-# Enable globalization and time zones:
+# Enable globalization and time zones
 # https://github.com/dotnet/dotnet-docker/blob/main/samples/enable-globalization.md
 # final stage/image
 
