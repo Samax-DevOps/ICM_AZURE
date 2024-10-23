@@ -23,13 +23,10 @@ jobs:
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
-       
-      - name: Build with dotnet
-        run: ls ICM.WebSites.Cms/ICM.WebSites.Cms.csproj      
-        
 
       - name: dotnet publish
-        run: dotnet publish ICM.WebSites.Cms/ICM.WebSites.Cms.csproj -a $TARGETARCH --no-restore --configuration Release -o /app
+        run: dotnet publish D:/a/ICM_AZURE/ICM_AZURE/ICM.WebSites.Cms/ICM.WebSites.Cms.csproj -a $TARGETARCH --no-restore --configuration Release -o /app
+
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
